@@ -314,7 +314,7 @@ Fix logged issues to these standards:
 - Accessibility: alt text for images in HTML and Markdown outputs, sufficient color contrast, no information conveyed
   by color alone.
 - **The build completes with no errors, no undefined references or citations, and no overfull boxes** (`bash
-  ../../shared/build.sh notes|slides|handout-...` in each meeting folder; the syllabus with `pdflatex`). Underfull-box
+  shared/build.sh mNN`, `mNN/notes`, `syllabus` and so on; with pdflatex or tectonic). Underfull-box
   and font warnings are not tracked.
 
 ## 9. Voice

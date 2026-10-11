@@ -104,7 +104,7 @@ By the end of the course you should be able to:
     \item state the counterfactual a business decision needs, and the break-even that decides it;
     \item estimate average and conditional treatment effects from experiments, with honest uncertainty, and
     say what an experiment with noncompliance identifies;
-    \item turn effect estimates into a targeting policy under costs, caps, budgets, and capacity, and
+    \item turn effect estimates into a targeting or pricing policy under costs, caps, budgets, and capacity, and
     evaluate that policy, including one chosen by an automated system, on data it was not chosen on;
     \item estimate effects from observational data by adjustment, propensity scores, double machine
     learning, difference-in-differences, and synthetic control;
@@ -185,30 +185,37 @@ of the technical notes. Section~3 of the notes and the handouts are not examined
 
 \subsection*{Assignments}
 
+Assignments use real data that no lab touches. Each is graded on a complete, well-reasoned analysis pipeline, not on
+a performance score.
+
 \begin{description}[leftmargin=1.5em, style=nextline]
 \item[A1: Write once, then delegate] Out Thursday 22 October (Meeting 2); due Friday 30 October.
-Covers Meetings 1--2. On a second email campaign, hand-code the ATE with a robust standard error, and
+Covers Meetings 1--2. On a real email experiment (the Hillstrom data, resampled, with course-specific
+costs), hand-code the ATE with a robust standard error, and
 CUPED. Then have a language model generate the full readout (sample-ratio check, ATE, CUPED, test
 against the break-even, minimum detectable effect for a follow-up) and verify it with a simulation
 test suite. One-page decision memo.
-\item[A2: Coupon whom, and at what budget?] Out Tuesday 3 November (Meeting 5); due Sunday 15
-November. Covers Meetings 3--6. Conditional effects from two meta-learners and a causal forest; the
-ranking evaluated with Qini curves and RATE; a budgeted allocation and a depth-2 policy tree. You
-submit frozen policies, which an autograder scores on a locked randomized evaluation set. Memo on
-value, cost, and what could overturn the recommendation.
-\item[A3: Learn the policy from the logs] Out Tuesday 10 November (Meeting 7); due Friday 20
-November. Covers Meetings 7--9. The same decision from observational logs only: a DAG and an
-adjustment set; regression, IPW, and AIPW estimates; overlap and trimming (the methods of Lab 7); then
-DML on the same logs, compared with these and with the locked randomized set. Generative AI for
-evaluation: a simulator fitted to the logs, with a planted effect and a dial for hidden confounding,
-tests each estimator's bias and coverage and whether your policy's ranking holds as confounding grows.
-\tbd{An LLM-coded feature, depending on the problem and the data.} Your policy is scored on the
-locked set, next to a policy trained on the randomized data. Sensitivity: how strong hidden
-confounding must be to change the chosen policy.
+\item[A2: Email whom, and at what budget?] Out Tuesday 3 November (Meeting 5); due Sunday 15
+November. Covers Meetings 3--6. The same experiment, with its three arms (a men's email, a women's
+email, no email). Conditional effects from two meta-learners and a causal forest; the ranking evaluated
+with Qini curves and RATE; a budgeted allocation and a depth-2 policy tree. You submit frozen policies,
+scored by IPW on a locked randomized holdout, with paired comparisons. Memo on value, cost, and what
+could overturn the recommendation.
+\item[A3: Promote and price from the logs] Out Tuesday 10 November (Meeting 7); due Friday 20
+November. Covers Meetings 7--9. Real grocery data with no experiment (dunnhumby, ``Breakfast at the
+Frat''). The effect of an in-store display: a DAG and an adjustment set; regression, IPW, and AIPW
+estimates; overlap and trimming (the methods of Lab 7). The price elasticity by DML, and a recommended
+price. Generative AI for evaluation: build a simulator of the data with a planted elasticity and a dial
+for hidden confounding, and test each estimator's bias and coverage on it. Your pipeline is then run on
+a locked simulator across several planted-elasticity scenarios. Sensitivity: how strong hidden
+confounding must be to change the recommended price.
 \item[A4: Did the AI assistant pay?] Out Thursday 19 November (Meeting 10); due Sunday 29 November.
-Covers Meetings 10--11. Evaluate the rollout of an AI store assistant: before--after, the $2 \times
+Covers Meetings 10--11. A real grocery panel (Favorita) with a planted rollout of an AI store assistant,
+whose adoption follows the stores' own pre-trends; a real shock, the April 2016 earthquake, falls in the
+window. Evaluate the rollout: before--after, the $2 \times
 2$ DiD, and TWFE; an event study; what the pre-period can and cannot rule out; standard errors
-clustered at the level of assignment; why staggered timing needs a different design. Then a
+clustered at the level of assignment; a small second wave, and why staggered timing needs a
+different design. Then a
 synthetic control for one flagship store, with placebos and leave-one-out, compared with DiD. A
 decision memo in margin, not sales.
 \end{description}
@@ -216,7 +223,10 @@ decision memo in margin, not sales.
 \subsection*{Labs}
 
 Lab $N$ goes with Meeting $N$. Each notebook is expected soon after its meeting. Ten labs are graded,
-1 point each; Lab 7 is optional and ungraded, and its methods are graded in A3.
+1 point each; Lab 7 is optional and ungraded, and its methods are graded in A3. Each block of labs works
+in one semi-synthetic world with a planted truth, so you can check every answer: Labs 1--7 in Houtan
+Coffee's loyalty program (built on public coffee-rewards data), Labs 8--9 in Airbnb listings and
+reviews, Labs 10--11 in real store panels with planted rollouts. Each notebook describes its source data.
 
 \begin{center}
 \footnotesize
@@ -224,15 +234,15 @@ Lab $N$ goes with Meeting $N$. Each notebook is expected soon after its meeting.
 \toprule
 \textbf{Lab} & \textbf{M} & \textbf{Data} & \textbf{What you do} & \textbf{AI use} \\
 \midrule
-1 & 1 & Simulated & Python and statistics review; a potential-outcomes simulator that checks naive $=$ ATT $+$ selection bias & None \\
-2 & 2 & Email experiment (Hillstrom) & A/B readout by hand; then an LLM-generated readout checked by three simulation tests & Required in part 2 (AI as tool) \\
-3 & 3 & Three simulated worlds with known effects & S- and T-learners by hand, then X- and DR-learners; a provided TARNet notebook & None until S and T are done \\
-4 & 4 & Coupon RCT & Causal forest with and without honesty; BLP, calibration test, GATES; discovery vs re-estimation across seeds & Allowed \\
-5 & 5 & Coupon RCT holdout with text profiles & Four targeting rules evaluated by IPW, one of them an LLM reading profiles; Qini curves and RATE; isotonic recalibration; freeze, then evaluate; a paired comparison of two lists & Required (AI as decision-maker) \\
-6 & 6 & Coupon RCT with costs and three coupon depths & Greedy and LP allocation; the shadow price; lower-bound allocation; a depth-2 policy tree on DR scores; optional: the price of a group constraint & Allowed \\
-7 & 7 & Logs built from the coupon RCT by a known targeting rule & Optional, ungraded, at home. DAG and adjustment set; naive, regression, IPW, AIPW, and matching against the truth; overlap and trimming; then audit a tool-calling agent and add a guardrail & None in part 1; part 2 audits an agent (AI as analyst) \\
-8 & 8 & Orange-juice scanner data & Naive, fixed-effects, and DML elasticities; hand-coded cross-fitting; sensitivity bounds. In class & Allowed after the hand-coded step \\
-9 & 9 & Hotel reviews with simulated treatment and gold labels & LLM labels against gold, by arm; PPI; embeddings as DML controls; a leakage demonstration & Required (AI as source of data) \\
+1 & 1 & Houtan Coffee world, simulated from scratch & Python and statistics review; a potential-outcomes simulator that checks naive $=$ ATT $+$ selection bias & None \\
+2 & 2 & Houtan Coffee RCT & A/B readout by hand; then an LLM-generated readout checked by three simulation tests & Required in part 2 (AI as tool) \\
+3 & 3 & Houtan Coffee RCT, three versions with different effects & S- and T-learners by hand, then X- and DR-learners; a provided TARNet notebook & None until S and T are done \\
+4 & 4 & Houtan Coffee RCT & Causal forest with and without honesty; BLP, calibration test, GATES; discovery vs re-estimation across seeds & Allowed \\
+5 & 5 & Houtan Coffee RCT holdout with text profiles & Four targeting rules evaluated by IPW, one of them an LLM reading profiles; Qini curves and RATE; isotonic recalibration; freeze, then evaluate; a paired comparison of two lists & Required (AI as decision-maker) \\
+6 & 6 & Houtan Coffee RCT with costs and three coupon depths & Greedy and LP allocation; the shadow price; lower-bound allocation; a depth-2 policy tree on DR scores; optional: the price of a group constraint & Allowed \\
+7 & 7 & Logs built from the Houtan Coffee RCT by a known targeting rule & Optional, ungraded, at home. DAG and adjustment set; naive, regression, IPW, AIPW, and matching against the truth; overlap and trimming; then audit a tool-calling agent and add a guardrail & None in part 1; part 2 audits an agent (AI as analyst) \\
+8 & 8 & Airbnb listings with planted demand & Naive, fixed-effects, and DML elasticities; hand-coded cross-fitting; sensitivity bounds; the optimal price. In class & Allowed after the hand-coded step \\
+9 & 9 & Airbnb reviews with a planted latent quality and gold labels & LLM labels against gold, by arm; PPI; embeddings as DML controls; a leakage demonstration; a simulator with a confounding dial & Required (AI as source of data) \\
 10 & 10 & Rossmann store sales with a planted rollout of an AI staffing tool & Before--after, $2 \times 2$, and TWFE; event study; a pre-trend test that passes yet misses the bias & Allowed (AI as intervention) \\
 11 & 11 & California Proposition 99; one flagship store in the Rossmann panel & Donor weights by constrained least squares; placebos; leave-one-out; synthetic control vs DiD & Allowed \\
 \bottomrule
@@ -407,8 +417,7 @@ materials.
 Language model and provider & \tbd{to be announced} \\
 Access, accounts, and cost to students & \tbd{to be announced} \\
 Agent harness (Lab 7) and logging & \tbd{to be announced} \\
-Autograder and locked evaluation set (A2, A3) & \tbd{to be announced} \\
-Simulator of the coupon logs (A3) & \tbd{to be announced} \\
+Locked holdout (A2) and locked simulator (A3) & \tbd{to be announced} \\
 Computing environment & \tbd{to be announced} \\
 \bottomrule
 \end{tabular}

@@ -31,10 +31,10 @@ request that resolves it.
 - [ ] syllabus/syllabus.tex:172 | 1 | Assignment team size | instructor
 - [ ] syllabus/syllabus.tex:173 | 1 | Final-project point breakdown | instructor
 - [x] syllabus/syllabus.tex:205 | 1 | Whether A3 includes an LLM-coded feature | instructor, once the problem and data are set (decided 10 Oct: no; the feature is in Lab 9. The syllabus text is updated with the data plan)
-- [ ] syllabus/syllabus.tex:292 | 1 | Due times; late-work policy | instructor
-- [ ] syllabus/syllabus.tex:306 | 1 | School policy on AI use | instructor
-- [ ] syllabus/syllabus.tex:310 | 1 | Academic integrity, accommodations, attendance, late work | instructor
-- [ ] syllabus/syllabus.tex:407–412 | 1 | Lab tooling: language model and provider, student access and cost, agent harness, autograder and locked set, A3 simulator, computing environment | instructor, before the labs are built
+- [ ] syllabus/syllabus.tex:302 | 1 | Due times; late-work policy | instructor
+- [ ] syllabus/syllabus.tex:316 | 1 | School policy on AI use | instructor
+- [ ] syllabus/syllabus.tex:320 | 1 | Academic integrity, accommodations, attendance, late work | instructor
+- [ ] syllabus/syllabus.tex:417–421 | 1 | Lab tooling: language model and provider, student access and cost, agent harness, locked holdout (A2) and locked simulator (A3), computing environment | instructor, before the labs are built
 
 ## Editorial pass findings
 

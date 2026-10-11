@@ -136,11 +136,8 @@ non-commercial teaching use is permitted.
 | A3 | dunnhumby "Breakfast at the Frat" (grocery) | Display effect by IPW and AIPW with overlap (M7); price elasticity by DML and a recommended price (M8); a student-built simulator (M9). Scored by the instructor's locked simulator across planted-elasticity scenarios |
 | A4 | Favorita (grocery panel), planted rollout | Adoption tied to real pre-trends; effect on margin; a small second wave for staggered timing; one flagship for synthetic control. The April 2016 earthquake sits in the window |
 
-**Still to do for the data plan.**
-1. Syllabus: Lab 2 uses the Houtan Coffee RCT, not Hillstrom; A1 names Hillstrom; Labs 8 and 9 use Airbnb; A3 is
-   rewritten for dunnhumby and the locked simulator; A4 uses Favorita; learning objective 3 reads "targeting or pricing
-   policy". Then `schedule.xlsx` (Labs and Assignments tabs) to match.
-2. Confirm the dunnhumby columns, and whether students register and download it themselves.
-3. Build, in calendar order: the Houtan Coffee world (Labs 1–7; Lab 1 is 20 Oct), the Hillstrom file (A1 out 22 Oct),
+**Still to do for the data plan.** (The syllabus and `schedule.xlsx` follow this plan since 11 Oct.)
+1. Confirm the dunnhumby columns, and whether students register and download it themselves.
+2. Build, in calendar order: the Houtan Coffee world (Labs 1–7; Lab 1 is 20 Oct), the Hillstrom file (A1 out 22 Oct),
    then the A2 holdout, the Airbnb world, the dunnhumby simulator, and the Rossmann and Favorita panels.
 

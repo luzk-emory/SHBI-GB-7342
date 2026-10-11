@@ -125,7 +125,7 @@ non-commercial teaching use is permitted.
 |---|---|---|
 | 1–6 | Starbucks rewards data (Kaggle), semi-synthetic: the Houtan Coffee RCT | Real customer covariates and offer portfolio. Planted: randomization, $\tau(x)$, three coupon depths, pre-period spend for CUPED, text profiles for Lab 5. Lab 3 uses three versions with different $\tau(x)$ |
 | 7 | Logs from the same world, assigned by a known targeting rule | Overlap dial; truth from the RCT version |
-| 8, 9 | Inside Airbnb, one city with mostly English reviews, semi-synthetic (lodging pricing) | Real listings, host prices and review text. Planted: demand with heterogeneous elasticity $\varepsilon(x)$, and a latent quality in the text that confounds price and demand. Lab 8: DML elasticity and optimal price. Lab 9: LLM labels versus gold quality, PPI, embeddings as controls, simulator with a confounding dial |
+| 8, 9 | Inside Airbnb, semi-synthetic (lodging pricing; the city is chosen later in the semester) | Real listings, host prices and review text. Planted: demand with heterogeneous elasticity $\varepsilon(x)$, and a latent quality in the text that confounds price and demand. Lab 8: DML elasticity and optimal price. Lab 9: LLM labels versus gold quality, PPI, embeddings as controls, simulator with a confounding dial |
 | 10 | Rossmann store sales, planted AI-tool rollout | Real sales; planted effect and adoption rule |
 | 11 | Proposition 99, plus one Rossmann flagship | Prop 99: the published estimate as benchmark. Flagship: planted effect |
 
@@ -141,7 +141,6 @@ non-commercial teaching use is permitted.
    rewritten for dunnhumby and the locked simulator; A4 uses Favorita; learning objective 3 reads "targeting or pricing
    policy". Then `schedule.xlsx` (Labs and Assignments tabs) to match.
 2. Confirm the dunnhumby columns, and whether students register and download it themselves.
-3. Pick the Inside Airbnb city.
-4. Build, in calendar order: the Houtan Coffee world (Labs 1–7; Lab 1 is 20 Oct), the Hillstrom file (A1 out 22 Oct),
+3. Build, in calendar order: the Houtan Coffee world (Labs 1–7; Lab 1 is 20 Oct), the Hillstrom file (A1 out 22 Oct),
    then the A2 holdout, the Airbnb world, the dunnhumby simulator, and the Rossmann and Favorita panels.
 

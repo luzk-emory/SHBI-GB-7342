@@ -5,6 +5,12 @@ Newest first. Each entry describes the repository as of its date and is not revi
 H4 (interference) is H1, H5 (sequential decisions) is H3, and H6 (neural estimators) is H2. Entries before 9 October
 number the labs from 0 (old Lab N is now Lab N+1).
 
+## Names and data plan (2026-10-10)
+
+- Names (instructor's decision): businesses named after places near the Qiantan campus, people with English names. Case A's unnamed coffee chain is Houtan Coffee and Lin is Lena; Case B's Meridian Hotels is Qiantan Hotels and Wen is Wendy (folder `cases/caseB-meridian` renamed `cases/caseB-qiantan`); Case C's unnamed home-goods chain is Sanlin Home, and Dana stays. The notes' FitLife is Yangsi Fitness and QuickBite is Pujiang Delivery (QuickBite Plus is Pujiang Plus). Applied to slides, notes, handouts, cases, the syllabus, check scripts, and the README; citations (Lin 2013, Zheng Wen) unchanged. Two M9 sentences shortened to keep a frame on its page.
+- Data plan for labs and assignments recorded in `revision-plan.md` Sections 5 and 6: one semi-synthetic world per lab block (Houtan Coffee RCT from the Starbucks rewards data, Inside Airbnb, Rossmann, Proposition 99), separate data for assignments (Hillstrom, dunnhumby, Favorita), graded on the pipeline rather than a score. The LLM-coded feature moves from A3 to Lab 9. Syllabus and `schedule.xlsx` edits are listed there as the next step.
+- Syllabus and `schedule.xlsx` (11 Oct) follow the data plan: learning objective 3 says "targeting or pricing policy"; assignments are graded on the pipeline, not a score; A1 names Hillstrom (resampled, course costs); A2 becomes "Email whom, and at what budget?" on Hillstrom's three arms with a locked holdout; A3 becomes "Promote and price from the logs" on dunnhumby with a locked simulator, and loses its LLM-coded-feature placeholder; A4 uses Favorita; Labs 1 to 7 use the Houtan Coffee world, Labs 8 and 9 Airbnb (Lab 8 adds the optimal price, Lab 9 a simulator with a confounding dial); the tooling appendix merges the A2 and A3 grading rows. Judgment calls 4 and 8 updated.
+
 ## Admin files brought up to date (2026-10-10)
 
 - `plan/design-plan.md` removed: the v4 notes plan is complete, its status section had gone out of date (H4 and H5 now restate the Meeting 2 results), and its live decisions are in the README, the notes, and the syllabus. It stays in git history.

@@ -1,6 +1,6 @@
-# Case A: Lin's coupon program
+# Case A: Lena's coupon program
 
-**A coffee chain, Meetings 1–7.** Fictional teaching case: the company, the people, and all data are invented.
+**Houtan Coffee, a coffee chain, Meetings 1–7.** Fictional teaching case: the company, the people, and all data are invented.
 
 This case is handed out one part at a time. Each part is released in class after the previous task is done. When a task says *commit*, write your answer down before the class discusses it, even if you are unsure.
 
@@ -14,7 +14,7 @@ The economics hold throughout unless a part says otherwise: a purchase earns **�
 
 ### Part M1-R1. Marketing's pilot
 
-Lin runs customer analytics for a coffee chain with **10,000 loyalty members**. Marketing wants to send every member a coupon worth **¥10 off** the next purchase.
+Lena runs customer analytics at Houtan Coffee, a coffee chain with **10,000 loyalty members**. Marketing wants to send every member a coupon worth **¥10 off** the next purchase.
 
 Their evidence is a Q1 pilot in one region of 1,000 members. The coupon went to 500 of them, the ones marketing judged most loyal.
 
@@ -62,7 +62,7 @@ Marketing picked the 500 most loyal for the coupon:
 
 ### Part M1-R3. Who got the coupon decides the sign
 
-Lin's CRM splits the whole base into two segments of 5,000. Take these segment numbers as given for now; estimating them comes later.
+Lena's CRM splits the whole base into two segments of 5,000. Take these segment numbers as given for now; estimating them comes later.
 
 | Segment | Purchase rate with coupon | Purchase rate without | Effect |
 |---|---:|---:|---:|
@@ -81,7 +81,7 @@ Two ways a manager might have run the pilot on the whole base, with one segment 
 
 ### Part M1-R4. The Q2 test
 
-In Q2 Lin ran a proper test in the pilot region: 500 of the 1,000 members were drawn to receive the coupon. From Lin's log:
+In Q2 Lena ran a proper test in the pilot region: 500 of the 1,000 members were drawn to receive the coupon. From Lena's log:
 
 - "The 500 recipients were drawn by a random number generator; the seed is in the log."
 - "Nobody could opt in, and nobody was removed after the draw."
@@ -147,7 +147,7 @@ From the campaign brief: *"The same coupon, in the same app, in the same quarter
 
 ### Part M2-R3. The next test
 
-The Q2 test settled one question: do not coupon everyone. Lin proposes two Q3 tests.
+The Q2 test settled one question: do not coupon everyone. Lena proposes two Q3 tests.
 
 - **A lapsed-only coupon test.** Does the coupon pay on lapsed members? Planning values: $p_1 = 0.30$, $p_0 = 0.10$, so a lift of 0.20 against a break-even of 0.10.
 - **An in-store buy-one-get-one (BOGO) offer.** It runs on the menu board, so it cannot be sent to individuals. (Part R4.)
@@ -163,7 +163,7 @@ The Q2 test settled one question: do not coupon everyone. Lin proposes two Q3 te
 
 ### Part M2-R4. The in-store offer
 
-The BOGO goes on the menu board: everyone in a store sees it. Lin plans 50 stores, 25 per arm, with about 400 customers per store-week and 20,000 customers in all. In the Q2 data the correlation of weekly purchase between two customers of the same store (the ICC) is **0.01**.
+The BOGO goes on the menu board: everyone in a store sees it. Lena plans 50 stores, 25 per arm, with about 400 customers per store-week and 20,000 customers in all. In the Q2 data the correlation of weekly purchase between two customers of the same store (the ICC) is **0.01**.
 
 **Tasks**
 1. What is the unit of assignment, and why can it not be the customer?
@@ -173,7 +173,7 @@ The BOGO goes on the menu board: everyone in a store sees it. Lin plans 50 store
 
 ### Part M2-R5. The memo
 
-Write Lin's memo on the Q2 test in four sentences, one judgment each:
+Write Lena's memo on the Q2 test in four sentences, one judgment each:
 1. Is the comparison causal, and for whom?
 2. The estimate and its interval.
 3. Against the break-even: does it pay?
@@ -181,14 +181,14 @@ Write Lin's memo on the Q2 test in four sentences, one judgment each:
 
 ### Part M2-R6. Who saw the coupon?
 
-Back to marketing's proposal in Part R1: drop the members who never opened the app. Lin pulls the app log for the Q2 test. A member saw the coupon only if they opened the app during the coupon week; members in the control arm had no coupon to see.
+Back to marketing's proposal in Part R1: drop the members who never opened the app. Lena pulls the app log for the Q2 test. A member saw the coupon only if they opened the app during the coupon week; members in the control arm had no coupon to see.
 
 | Arm | Members | Opened the app | Bought, among openers | Bought, among non-openers | Bought, all |
 |---|---:|---:|---:|---:|---:|
 | Coupon | 500 | 400 | 230 | 20 | 250 |
 | No coupon | 500 | 360 | 180 | 20 | 200 |
 
-From Lin's log:
+From Lena's log:
 - "The draw decided who was sent the coupon. Nobody in the control arm could get one."
 - "The coupon reached a member only through the app; the push notification said *You have a new offer*, without the amount."
 - "Any purchase by a member of the coupon arm got ¥10 off at the till, whether or not they had seen the coupon."
@@ -199,7 +199,7 @@ From Lin's log:
 3. Members in the coupon arm who never opened the app would not have seen a coupon in either arm. What is their purchase rate? Use it, and the control arm, to find the purchase rate that members who *would* see a coupon have without it. Check that their treated rate minus this untreated rate gives the ratio from task 2.
 4. Why are the openers in the two arms not the same people? Which way does the openers-only comparison miss, and why?
 5. Match each log sentence to the assumption it supports. Suppose the notification had said *¥10 off your next coffee*. Which assumption would that threaten, and in which direction would the ratio move?
-6. Among members who see the coupon, does it pay? (Use the break-even rule from Meeting 1 with their purchase rate when they see it.) Lin's team proposes a text message to reach the non-openers. What does the ratio tell you about that proposal, and what does it not?
+6. Among members who see the coupon, does it pay? (Use the break-even rule from Meeting 1 with their purchase rate when they see it.) Lena's team proposes a text message to reach the non-openers. What does the ratio tell you about that proposal, and what does it not?
 
 ---
 
@@ -207,14 +207,14 @@ From Lin's log:
 
 ### Part M3-R1. Two lists for 5,000 coupons
 
-The CFO has approved **5,000 coupons** for Q3, half the base. Two lists are on Lin's desk.
+The CFO has approved **5,000 coupons** for Q3, half the base. Two lists are on Lena's desk.
 
 - **Marketing's data science team:** a purchase model on last year's transactions. *Send to the 5,000 members most likely to buy. "They are our best customers. They will redeem."*
-- **Lin:** send to the 5,000 members the coupon *moves* most. *"That is exactly the problem."*
+- **Lena:** send to the 5,000 members the coupon *moves* most. *"That is exactly the problem."*
 
-On the two segments of Meeting 1, marketing's model ranks the active members first; Lin's rule ranks the lapsed first.
+On the two segments of Meeting 1, marketing's model ranks the active members first; Lena's rule ranks the lapsed first.
 
-From Lin's documentation of the Q2 export:
+From Lena's documentation of the Q2 export:
 - "The Q2 draw was 50/50 in every region, tier, and store."
 - "All CRM fields were frozen the day before the draw."
 - "Members who joined during Q2 were not in the draw."
@@ -226,7 +226,7 @@ From Lin's documentation of the Q2 export:
 
 ### Part M3-R2. Four customers
 
-Lin fits the interaction model $Y = \alpha + \tau D + \beta X + \gamma (D \times X)$ with $X = 1$ for active members and $X = 0$ for lapsed. From the four cell means: $\hat\alpha = 0.10$, $\hat\tau = 0.20$, $\hat\beta = 0.65$, $\hat\gamma = -0.15$.
+Lena fits the interaction model $Y = \alpha + \tau D + \beta X + \gamma (D \times X)$ with $X = 1$ for active members and $X = 0$ for lapsed. From the four cell means: $\hat\alpha = 0.10$, $\hat\tau = 0.20$, $\hat\beta = 0.65$, $\hat\gamma = -0.15$.
 
 | Customer | Segment | Coupon $D$ | Bought $Y$ | $\hat\mu_0(x)$ | $\hat\mu_1(x)$ | Coupon? |
 |---|---|---:|---:|---|---|---|
@@ -308,7 +308,7 @@ Store managers will not run a black-box score. They want a **card**: at most fou
 
 Last year a consultant searched hundreds of segment definitions in a test like this one and reported a "hidden gem" segment with a spectacular lift. The rollout delivered a fraction of it.
 
-This time the CFO has set a rule. Lin's Region 2 coupon test (4,000 members, a 50/50 draw, as in Q2) is split at random into two halves of 2,000:
+This time the CFO has set a rule. Lena's Region 2 coupon test (4,000 members, a 50/50 draw, as in Q2) is split at random into two halves of 2,000:
 
 | Step | Data | Output |
 |---|---|---|
@@ -316,7 +316,7 @@ This time the CFO has set a rule. Lin's Region 2 coupon test (4,000 members, a 5
 | H2 estimation | half B, outcomes locked until H1 is in | one number per segment |
 | H3 recommendation | H2's numbers only | the card |
 
-From the CFO's rule and Lin's log:
+From the CFO's rule and Lena's log:
 - "Members were split into halves by a random draw on member ID, before anyone looked."
 - "Half B's outcomes were held by the CFO's office until every partition was submitted."
 - "Each half kept its own 50/50 coupon draw."
@@ -341,7 +341,7 @@ Two CRM fields: **customer type** (executive or analyst, from the job-title fiel
 
 ### Part M4-R3. H1: Search, then commit
 
-On half A, Lin's causal tree (all 14 fields, depth 2) returns four leaves:
+On half A, Lena's causal tree (all 14 fields, depth 2) returns four leaves:
 
 | Leaf | Half-A lift | Break-even |
 |---|---:|---:|
@@ -394,7 +394,7 @@ Honest intervals from half B. The 98.75% intervals (lift ± 2.50 SE) hold all fo
 
 ### Part M5-R1. The engine wants to run the send
 
-The 5,000 Q3 coupons go out next month. The chain has just licensed an **automated campaign engine**: it builds targeting lists from the Q2 export and would send the coupons itself. Three lists are on Lin's desk, each built on the training folds of the Q2 export:
+The 5,000 Q3 coupons go out next month. The chain has just licensed an **automated campaign engine**: it builds targeting lists from the Q2 export and would send the coupons itself. Three lists are on Lena's desk, each built on the training folds of the Q2 export:
 
 | List | How it was built |
 |---|---|
@@ -543,7 +543,7 @@ The CFO wants the program reviewed. Sales has pulled the Q3 logs:
 Sales' reading: *"The coupon repels customers. Kill it."*
 And **the CFO will not fund another experiment.** The Q3 logs must answer.
 
-From Lin's description of the program:
+From Lena's description of the program:
 - "Coupons were assigned by the scoring rule and by nothing else."
 - "Every field the rule read is in the export."
 - "The daily cap meant no score band was sent coupons on every day."
@@ -607,7 +607,7 @@ The engine's score reads **14 CRM fields** and cuts them into four bands; each b
 
 ### Part M7-R4b. Opening the outcomes
 
-Lin's design record is written and dated. The purchase column opens:
+Lena's design record is written and dated. The purchase column opens:
 
 | Band | Coupon: bought | No coupon: bought |
 |---|---:|---:|
@@ -619,13 +619,13 @@ Lin's design record is written and dated. The purchase column opens:
 **Tasks. In pairs**
 1. Compute the pooled effect, the IPW effect on all recipients (all four bands), the trimmed effect (bands 1 to 3), and the effect in band 4.
 2. Each population has its own break-even, $10p_1/30$, where $p_1$ is its purchase rate with the coupon. Give each population's break-even and net per coupon.
-3. Write Lin's memo to the CFO: what to keep, what to stop, and what to report separately.
+3. Write Lena's memo to the CFO: what to keep, what to stop, and what to report separately.
 
 ---
 
 ## Take-home (Meeting 7): The Rivergate control audit
 
-*A different firm. Rivergate is a fictional fulfilment business, not the coffee chain.*
+*A different firm. Rivergate is a fictional fulfilment business, not Houtan Coffee.*
 
 Mei manages operations at Rivergate. She must decide whether to fund four weeks of training for the 200 pickers eligible next quarter: 100 high-skill and 100 low-skill. Training costs **¥1,800 per participant**. Each additional correctly fulfilled order contributes **¥80**. For planning, assume a weekly effect persists for the four weeks and orders are not taken from co-workers.
 

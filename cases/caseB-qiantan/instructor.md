@@ -1,10 +1,10 @@
-# Case B: Wen's Rate Decisions: Instructor Version
+# Case B: Wendy's Rate Decisions: Instructor Version
 
 **Meetings 8–9. Instructor only: contains every answer and all future releases.** Meeting 9 was rewritten on 8 October for the generative-AI meeting; its old IV parts are kept at the end as a bonus (Parts B1–B4).
 
 ## 1. What the case does
 
-Two meetings, one question: *what happens to bookings if Meridian changes its rate, and how should it set rates?*
+Two meetings, one question: *what happens to bookings if Qiantan Hotels changes its rate, and how should it set rates?*
 
 - **M8** answers it from the RM system's logs (adjustment and DML) and ends on the assumption the logs cannot check: unlogged overrides.
 - **M9** keeps the question and brings in generative AI in both of its roles. A simulator learned from the M8 logs tests the M8 estimator against the override problem, and tests whole pricing pipelines (block A). A language model reads guest reviews for a randomized rate test's guardrail, and text becomes DML controls (block B). The M8 breakdown is the motivation for M9; do not let the two meetings read as separate cases.
@@ -20,7 +20,7 @@ M8 numbers match `meetings/m08` and are checked by `shared/checks/slides08_check
 
 **AI thread.** In M8, AI as the decision-maker: the RM system is an automated pricer, and its decisions are the confounder. This is M7's lesson with a continuous treatment: *the rule that set the treatment is what you must adjust for, and it must enter as flexibly as it was written.* In M9, generative AI as a simulator (block A) and as a source of data (block B), with the vendor's engine as a candidate decision-maker.
 
-**Not in class time:** regression discontinuity (Handout H5, with M8) and instrumental variables beyond M2 (Handout H4). The bonus Parts B1–B4 are for students who want the IV version of Wen's question.
+**Not in class time:** regression discontinuity (Handout H5, with M8) and instrumental variables beyond M2 (Handout H4). The bonus Parts B1–B4 are for students who want the IV version of Wendy's question.
 
 ## 2. Release schedule
 
@@ -28,18 +28,18 @@ M8 has no slack, and its block C is the proposal presentations. If the meeting r
 
 | Part | Meeting, block | About | Hand out at | Hold back until the attempt |
 |---|---|---|---|---|
-| M8-R1 | M8 A | 0–10 | `[RELEASE R1]` "Meridian Hotels: The Proposal" | "The Number That Decides It"; the pooled slope on "Six Comparable Nights" |
+| M8-R1 | M8 A | 0–10 | `[RELEASE R1]` "Qiantan Hotels: The Proposal" | "The Number That Decides It"; the pooled slope on "Six Comparable Nights" |
 | M8-R2 | M8 A | 15–30 | `[RELEASE R2]` "Pooled, Then Within Category" | the −1.0 line; "Why Both Sides? Six Nights Again" |
-| M8-R3 | M8 A | 40–50 | `[RELEASE R3]` "The Real Logs" | "Controls That Cannot Bend"; "Plug-In Failure 1: Regularization Bias" and "Plug-In Failure 2: Overfitting Bias"; "The Price Elasticity at Meridian" |
+| M8-R3 | M8 A | 40–50 | `[RELEASE R3]` "The Real Logs" | "Controls That Cannot Bend"; "Plug-In Failure 1: Regularization Bias" and "Plug-In Failure 2: Overfitting Bias"; "The Price Elasticity at Qiantan Hotels" |
 | M8-R4 | M8 B | 75–82 | `[RELEASE R4]` "A Yes-or-No Treatment: The Last-Minute Discount" | the 13.9 line; "Two Models, Two Estimands"; "The AIPW Score" |
-| M8-R5 | M8 B | 85–95 | `[RELEASE R5]` "One More Thing, Says Wen" | "How Strong Would It Have To Be?"; "Benchmarking Against an Observed Signal" |
+| M8-R5 | M8 B | 85–95 | `[RELEASE R5]` "One More Thing, Says Wendy" | "How Strong Would It Have To Be?"; "Benchmarking Against an Observed Signal" |
 | M9-R1 | M9 A | 0–5 | `[RELEASE R1]` "Meeting 8 Left One Doubt" | "What the Simulator's Answer Rests On"; the data/analyst table on "Planting the Truth" |
 | M9-R2 | M9 A | 15–20 | `[RELEASE R2]` "An Estimator Testbed" | "Reading the Testbed" |
-| M9-R3 | M9 A | 25–30 | `[RELEASE R3]` "Three Pipelines on Two Simulators" | "Check 1" to "Check 4"; "What the Testbeds Tell Wen" |
+| M9-R3 | M9 A | 25–30 | `[RELEASE R3]` "Three Pipelines on Two Simulators" | "Check 1" to "Check 4"; "What the Testbeds Tell Wendy" |
 | M9-R4 | M9 A | 42–45 | `[RELEASE R4]` "Ask the Model Instead?" | "Planted Truth and Asserted Truth" |
 | M9-R5 | M9 B | 50–55 | `[RELEASE R5]` "The Q3 Rate Test" | "The Gold Subsample"; "Differential Error, Decomposed"; "PPI on the Q3 Reviews"; "Why PPI Works Here" |
 | M9-R6 | M9 B | 80–85 | `[RELEASE R6]` "Embeddings as Controls" | "Failure 1: Leakage"; "Failure 2: Overlap Collapse" |
-| M9-R7 | M9 B | 95–100 | `[RELEASE R7]`, before "What Wen Decides" | that frame (the memo can finish at home) |
+| M9-R7 | M9 B | 95–100 | `[RELEASE R7]`, before "What Wendy Decides" | that frame (the memo can finish at home) |
 | B1–B4 | take-home | | with the notes | the bonus key below |
 
 Controlled projection copy for M8 is still required: do not project the residual rows or the −1.0 line on "Pooled, Then Within Category" before R2's attempt. **The simulation's true elasticities are never shown in lecture**; they appear only in the M8 and M9 workshop comparisons.
@@ -69,8 +69,8 @@ Controlled projection copy for M8 is still required: do not project the residual
   3. **Residualize both sides in-sample: −0.95.** The flexible model memorizes rows; its in-sample $R^2$ is 0.97. Well-regularized in-sample gives −1.57 and cross-fitted −1.56. The bias grows with flexibility and cannot be sized from inside the fit.
 - **DML** (residualize both sides + cross-fit, folds by night, date-clustered SE): −1.56 (date-clustered SE 0.03), 95% CI [−1.62, −1.50]; rows treated as independent give SE 0.01, three times too small.
   - The bias from nuisance errors is second-order: products of the two errors, plus the price model's squared error. That is why both sides are residualized.
-- Task 4: same-night booking pace recorded after the rate posted is partly *caused* by the rate. So is a competitor index that reacts to Meridian's own rate. Both are post-treatment. **Every control must be measured as of the moment the RM system set the rate**; otherwise it enters as a mediator or a collider (M7).
-- Decision table (deck frame "The Price Elasticity at Meridian", computed from −1.56):
+- Task 4: same-night booking pace recorded after the rate posted is partly *caused* by the rate. So is a competitor index that reacts to Qiantan Hotels' own rate. Both are post-treatment. **Every control must be measured as of the moment the RM system set the rate**; otherwise it enters as a mediator or a collider (M7).
+- Decision table (deck frame "The Price Elasticity at Qiantan Hotels", computed from −1.56):
   - +8% rate: bookings −11.3%, contribution −1.9%.
   - −4%: +0.9%. −8%: +1.7%.
   - **Do not raise.** A modest cut is worth testing deliberately.
@@ -96,7 +96,7 @@ Controlled projection copy for M8 is still required: do not project the residual
 ### M9-R1
 1. **Unconfoundedness given the signals**, with positivity and consistency: the M7 and M8 assumption. The simulator learned $\E[Y \mid D, X]$ and the distribution of $X$ from the logs; sampling from it at a new rate is the g-formula. Its "bookings at another rate" are causal only if the logs' rates were as good as random given the 47 signals. The overrides are exactly where that fails.
 2. **From the data:** the signals' joint distribution, the shape of demand across nights, the noise. **From the analyst:** the elasticity −1.50, the override effect (+12% demand, +10% rate), and its 8% share.
-3. **No.** A simulator learned from confounded logs inherits their confounding, and the truth inside it is planted by the team. It can test whether an estimator recovers a truth on data shaped like Meridian's. It cannot reveal Meridian's truth.
+3. **No.** A simulator learned from confounded logs inherits their confounding, and the truth inside it is planted by the team. It can test whether an estimator recovers a truth on data shaped like Qiantan Hotels'. It cannot reveal Qiantan Hotels' truth.
 
 ### M9-R2
 1. Bias (mean − (−1.50)): **+1.92, +0.32, +0.01, +0.09, +0.13**.
@@ -113,7 +113,7 @@ Controlled projection copy for M8 is still required: do not project the residual
 6. **DML elasticity, then optimize**: the smallest worst-case regret, and it stays inside the logged range. Run it with a **holdout**: a random 10% of hotel-nights stay on the current rule (or alternate by night, a switchback), so realized contribution can be compared. Pilot the vendor's engine the same way, only with rates capped at the logged range.
 
 ### M9-R4
-1. In R1 the analyst planted the truth on top of what was learned from Meridian's own logs, so an estimator can be checked against it. Here the truth is **asserted**: it is whatever the language model's priors say about guests in general. Nobody planted it, and nothing ties it to Meridian's guests.
+1. In R1 the analyst planted the truth on top of what was learned from Qiantan Hotels' own logs, so an estimator can be checked against it. Here the truth is **asserted**: it is whatever the language model's priors say about guests in general. Nobody planted it, and nothing ties it to Qiantan Hotels' guests.
 2. Believe the evidence with a design: M8 (−1.56, conditional on its assumption), the testbed (direction of the override bias), and above all a randomized test. The Q3 test (R5) settles it: −1.72. The synthetic number is a hypothesis, not evidence.
 3. **No.** A testbed needs a known truth on the business's data shape; the synthetic guests' truth is unknown. (CEVAE sits on the same side: its identification rests on structure it does not state.)
 
@@ -188,7 +188,7 @@ These are the keys of the former Meeting 9 (instrumental variables), unchanged e
    | elasticity | −1.85 | −1.50 | **−1.35 (break-even)** | −1.14 |
 
    The old-engine placebo measured 1.2, only about 0.5 bookings from the point where the cut stops paying. The data cannot say which column is true; the table prices the doubt.
-6. **If the email continues, it is part of the policy, not a bias.** Exclusion matters only for attributing effects to the *rate*. Wen then needs the effect of the program as it will run, which is the ITT side (ITT 6.0 bookings per heads night, with managers' overrides included), converted to contribution. The email-corrected elasticity answers a different question: the member rate *without* the email. Make students say which program they are pricing.
+6. **If the email continues, it is part of the policy, not a bias.** Exclusion matters only for attributing effects to the *rate*. Wendy then needs the effect of the program as it will run, which is the ITT side (ITT 6.0 bookings per heads night, with managers' overrides included), converted to contribution. The email-corrected elasticity answers a different question: the member rate *without* the email. Make students say which program they are pricing.
 
 ### B4
 
@@ -208,6 +208,6 @@ Most fail on **exclusion**, which the data cannot test in general. The coin pass
 The issues listed here earlier are resolved in the rebuilt decks:
 
 1. **M8 release order** (resolved): "Predict Before You Look" and "The Ladder" are gone, and `[RELEASE R3]` sits on "The Real Logs", the first frame with the log summary and the RM rule. (The R1 frame names the 80 hotels and 47 signals, as Part R1 does.)
-2. **M8 outputs as figures** (resolved): "The Exhibit" and "Wen's Table" are gone. The decision table is in the text of "The Price Elasticity at Meridian", and every M8 number is checked by `shared/checks/slides08_check.py`.
+2. **M8 outputs as figures** (resolved): "The Exhibit" and "Wendy's Table" are gone. The decision table is in the text of "The Price Elasticity at Qiantan Hotels", and every M8 number is checked by `shared/checks/slides08_check.py`.
 3. **The M9 deck is replaced.** The old IV deck's frames (Wald ratio, ladder, $F = 410$) survive only in git history (commit `5522695`) and in the bonus parts. The new deck follows the M9 notes' order with this case's numbers.
-4. **Case framing** (resolved): "Meridian Hotels: The Proposal" states that the RM system is an automated decision-maker.
+4. **Case framing** (resolved): "Qiantan Hotels: The Proposal" states that the RM system is an automated decision-maker.

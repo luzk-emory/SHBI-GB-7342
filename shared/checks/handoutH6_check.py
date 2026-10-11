@@ -1,4 +1,4 @@
-# Independent arithmetic check of handoutH6.tex (Staggered adoption), FitLife waves example and exercise.
+# Independent arithmetic check of handoutH6.tex (Staggered adoption), Yangsi Fitness waves example and exercise.
 import sys
 import numpy as np
 R = []

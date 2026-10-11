@@ -1,4 +1,4 @@
-"""Arithmetic checks for meetings/m07/slides.tex (lecture case: Lin's coupon programme, coffee chain, the review of
+"""Arithmetic checks for meetings/m07/slides.tex (lecture case: Lena's coupon programme, Houtan Coffee, the review of
 the Q3 programme from its logs, M7 releases R1 to R4b). The slides use their own numbers, not the notes' worked example.
 Run: python3 slides07_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
@@ -108,7 +108,7 @@ eb = {k: F(n1b[k], Nb[k]) for k in bands}
 for k, s in [(1, "0.08"), (2, "0.32"), (3, "0.62"), (4, "0.98")]: check(f"e-hat band {k}", s, eb[k])
 ob = {k: eb[k] / (1 - eb[k]) for k in bands}
 for k, s in [(1, "0.087"), (2, "0.47"), (3, "1.63"), (4, "49")]: check(f"ATT weight band {k}", s, ob[k])
-check("band 4: 98% got one", "98", 100 * eb[4]); assert all(0 < eb[k] < 1 for k in bands)  # Lin's third sentence holds
+check("band 4: 98% got one", "98", 100 * eb[4]); assert all(0 < eb[k] < 1 for k in bands)  # Lena's third sentence holds
 for k, s in [(1, "200"), (2, "800"), (3, "1550"), (4, "2450")]:
     check(f"weighted non-recipients band {k}", s, n0b[k] * ob[k]); assert n0b[k] * ob[k] == n1b[k]
 SW = sum(n0b[k] * ob[k] for k in bands); SW2 = sum(n0b[k] * ob[k] ** 2 for k in bands)

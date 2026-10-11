@@ -205,7 +205,7 @@ evaluation result.
 %=====================================================================================
 \sectiontwo
 
-\paragraph{Setting.} QuickBite emails customers an offer to join QuickBite Plus (a delivery-fee subscription), with a
+\paragraph{Setting.} Pujiang Delivery emails customers an offer to join Pujiang Plus (a delivery-fee subscription), with a
 small incentive. Each email and incentive costs ¥1.00; each additional subscription is worth ¥120 of margin.
 The break-even lift is $1/120 = 0.0083$. An uplift model was trained and its cut-off chosen on last year's experiment. This
 year a 20{,}000-customer randomized test (50/50) is the evaluation sample.
@@ -278,13 +278,13 @@ $q$ gives a Qini-type RATE of $0.0046$. Both are positive: the score ranks bette
 subscriptions per 20{,}000; on the evaluation sample, 270. The 70-subscription gap (about ¥8{,}400) is the optimism of
 Result~\ref{prop:optimistic}. Report ¥22{,}400.
 
-\paragraph{Step 5: calibration.} Had QuickBite used ``email if score $> 0.0083$'' with scores twice the true effects, it
+\paragraph{Step 5: calibration.} Had Pujiang Delivery used ``email if score $> 0.0083$'' with scores twice the true effects, it
 would email everyone with true effect above $0.0042$ (deciles 1--6) and earn ¥21{,}600, ¥800 less. Isotonic calibration on
 the selection sample (Result~\ref{prop:iso}) would have mapped each decile's score to an estimate of its own effect, about
 half the raw score, and restored the five-decile rule without refitting the model.
 
 \begin{exercise}[computation]
-QuickBite compares ``top 5 deciles'' with ``top 4 deciles'' on the same evaluation sample; the two lists differ only on
+Pujiang Delivery compares ``top 5 deciles'' with ``top 4 deciles'' on the same evaluation sample; the two lists differ only on
 decile 5, where 4\% of emailed and 3\% of non-emailed customers subscribed. With reward $R(d) = 120\,Y(d) - 1.00\,d$ and
 $e = 0.5$: (a) list the possible row contributions $d_i = g_i(\pi_a) - g_i(\pi_b)$ on decile-5 rows and their mean;
 (b) compute the paired SE of the per-customer difference over all $n = 20{,}000$ rows; (c) is the fifth decile worth

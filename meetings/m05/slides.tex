@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 5 lecture slides (block B; block A is Exam I). Running case: Lin's coupon programme at a coffee chain
-% (cases/caseA-coffee-chain, Meeting 5 releases R1 to R4). The notes' worked example (QuickBite) is deliberately not
+% Meeting 5 lecture slides (block B; block A is Exam I). Running case: Lena's coupon programme at Houtan Coffee
+% (cases/caseA-coffee-chain, Meeting 5 releases R1 to R4). The notes' worked example (Pujiang Delivery) is deliberately not
 % reproduced here, and the notes' four-group illustration is replaced by the coffee chain's own four groups.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Every number is checked by shared/checks/slides05_check.py.
@@ -119,7 +119,7 @@
 % [RELEASE R1: the engine and the candidate lists; evaluation-fold outcomes stay locked]
 \begin{frame}{Three Lists, One Launch}
 
-The 5{,}000 Q3 coupons of Meeting 3 go out next month. The chain has licensed an automated campaign engine, which builds lists from the Q2 export and would send the coupons itself. Three lists are on Lin's desk:
+The 5{,}000 Q3 coupons of Meeting 3 go out next month. The chain has licensed an automated campaign engine, which builds lists from the Q2 export and would send the coupons itself. Three lists are on Lena's desk:
 
 \begin{center}
 \small
@@ -154,7 +154,7 @@ A \textbf{policy} is a rule $\pi: x \mapsto \{0,1\}$; the potential outcome $R(d
 \[
 V(\pi) = \E[R(\pi(X))], \qquad G(\pi) = V(\pi) - V(\mathbf{0}), \qquad v(x) = \E[R(1) - R(0) \mid X = x].
 \]
-At the coffee chain, $R(d) = (30 - 10d)\,Y(d)$ and $v(x) = 30\,\tau(x) - 10\,\mu_1(x)$.
+At Houtan Coffee, $R(d) = (30 - 10d)\,Y(d)$ and $v(x) = 30\,\tau(x) - 10\,\mu_1(x)$.
 
 \begin{result}{1.1}{The policy-value identity}
 $G(\pi) = \E[\pi(X)\,v(X)] = \Pr(\pi(X) = 1)\cdot\E[v(X) \mid \pi(X) = 1]$.

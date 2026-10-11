@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 4 lecture slides. Running case: Lin's coupon program at a coffee chain (cases/caseA-coffee-chain,
-% Meeting 4 releases R1 to R5). The notes' worked example (QuickBite) is deliberately not reproduced here.
+% Meeting 4 lecture slides. Running case: Lena's coupon program at Houtan Coffee (cases/caseA-coffee-chain,
+% Meeting 4 releases R1 to R5). The notes' worked example (Pujiang Delivery) is deliberately not reproduced here.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Block A follows notes Sections 1.1 to 1.4; block B follows Sections 1.5 and 1.6.
 % Every number is checked by shared/checks/slides04_check.py.
@@ -367,10 +367,10 @@ Outcome trees spend their depth on prognostic variables before they reach effect
 \end{frame}
 
 % ====================================================================
-% [RELEASE R3: Lin's half-A tree; half B's outcomes stay locked until every partition is submitted]
-\begin{frame}{Lin's Tree on Half A}
+% [RELEASE R3: Lena's half-A tree; half B's outcomes stay locked until every partition is submitted]
+\begin{frame}{Lena's Tree on Half A}
 
-Lin runs a causal tree on half A with all 14 CRM fields, depth 2. It returns four leaves:
+Lena runs a causal tree on half A with all 14 CRM fields, depth 2. It returns four leaves:
 
 \begin{center}
 \small
@@ -475,7 +475,7 @@ The argument uses one fact: \textbf{the partition does not depend on $B$}.
 % ====================================================================
 \begin{frame}{What the CFO's Rule Buys}
 
-From the CFO's rule and Lin's log:
+From the CFO's rule and Lena's log:
 
 \begin{center}
 \small
@@ -559,14 +559,14 @@ entirely below & do not act \\
 
 \medskip
 
-With $L$ leaves, a Bonferroni level $1 - 0.05/L$ controls the chance that any line on the card is wrong. For Lin's four leaves: $1 - 0.05/4 = 98.75\%$, so $\pm 2.50$ SEs instead of $\pm 1.96$.
+With $L$ leaves, a Bonferroni level $1 - 0.05/L$ controls the chance that any line on the card is wrong. For Lena's four leaves: $1 - 0.05/4 = 98.75\%$, so $\pm 2.50$ SEs instead of $\pm 1.96$.
 \end{frame}
 
 % ====================================================================
 % [RELEASE R4: half B's outcomes, for the committed partition only]
 \begin{frame}{H2: The Same Leaves on Half B}
 
-Lin's four leaves, each estimated on members the tree never saw:
+Lena's four leaves, each estimated on members the tree never saw:
 
 \begin{center}
 \small
@@ -873,7 +873,7 @@ A forest reports how often each field is used to split. Split counts describe th
 
 \bigskip
 
-Half A already showed the risk: app use entered Lin's tree with nothing behind it. Treat a high importance as a \textbf{hypothesis for fresh data}: estimate the effect by that field on held-out members, with the SE of the gap.
+Half A already showed the risk: app use entered Lena's tree with nothing behind it. Treat a high importance as a \textbf{hypothesis for fresh data}: estimate the effect by that field on held-out members, with the SE of the gap.
 \end{frame}
 
 % ====================================================================

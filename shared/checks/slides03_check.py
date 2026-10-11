@@ -1,4 +1,4 @@
-"""Arithmetic checks for meetings/m03/slides.tex (lecture case: Lin's coupon programme, coffee chain, M3 releases).
+"""Arithmetic checks for meetings/m03/slides.tex (lecture case: Lena's coupon programme, Houtan Coffee, M3 releases).
 The slides use their own numbers, not the notes' worked example. Run: python3 slides03_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction as F
@@ -31,7 +31,7 @@ check("ratio about nineteen", "19", v0 / vt, tol=0.5)
 V = {k: m * tau[k] - c * mu1[k] for k in tau}
 check("bar active 0.267", "0.267", mu1['A'] / 3); check("bar lapsed 0.100", "0.100", mu1['L'] / 3)
 check("V active -6.50", "-6.50", V['A']); check("V lapsed 3.00", "3.00", V['L'])
-check("marketing list -32,500", "-32500", 5000 * V['A']); check("Lin list 15,000", "15000", 5000 * V['L'])
+check("marketing list -32,500", "-32500", 5000 * V['A']); check("Lena list 15,000", "15000", 5000 * V['L'])
 check("E[V] -1.75", "-1.75", (V['A'] + V['L']) / 2)
 check("E[max(V,0)] 1.50", "1.50", (max(V['A'], 0) + max(V['L'], 0)) / 2)
 check("1.50 x 10,000 = 15,000", "15000", 10000 * F(3, 2))

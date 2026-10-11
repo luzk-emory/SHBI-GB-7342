@@ -4,7 +4,7 @@
 
 ## 1. What the case does
 
-A retail chain has rolled a generative-AI assistant out to its stores in stages. Should it confirm the next cohort (M10), and extend it to everyone, given what one early store shows (M11)?
+Sanlin Home, a home-goods retail chain, has rolled a generative-AI assistant out to its stores in stages. Should it confirm the next cohort (M10), and extend it to everyone, given what one early store shows (M11)?
 
 This is **AI as an intervention to evaluate**: the chain tests an AI product the way it would test any other change, and the vendor's own metric is the first thing to set aside.
 

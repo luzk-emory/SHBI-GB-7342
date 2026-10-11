@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 8 lecture slides. Running case: Wen's rate decision at Meridian Hotels (cases/caseB-meridian, Meeting 8
-% releases R1 to R5). The notes' worked example (QuickBite) is deliberately not reproduced here.
+% Meeting 8 lecture slides. Running case: Wendy's rate decision at Qiantan Hotels (cases/caseB-qiantan, Meeting 8
+% releases R1 to R5). The notes' worked example (Pujiang Delivery) is deliberately not reproduced here.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Block A follows notes Sections 1.1 to 1.3 (through the product of errors); block B follows the rest of Section 1.3
 % (inference, repeated splits, learners) and Sections 1.4 to 1.6.
@@ -74,7 +74,7 @@
 
 % ── Title ──
 \title[Meeting 8]{Meeting 8: Double Machine Learning}
-\subtitle{Flexible controls without biased answers: Wen's rate decision}
+\subtitle{Flexible controls without biased answers: Wendy's rate decision}
 \author{Zhikun Lu}
 \date{}
 
@@ -98,7 +98,7 @@
   \item Residualization (FWL); what $\theta$ averages
   \item Why plug-in machine learning fails
   \item Cross-fitting and the product of errors
-  \item The price elasticity at Meridian
+  \item The price elasticity at Qiantan Hotels
 \end{itemize}
 \end{column}
 \begin{column}{0.48\textwidth}
@@ -120,9 +120,9 @@
 % ====================================================================
 
 % [RELEASE R1: the proposal and the six comparable nights]
-\begin{frame}{Meridian Hotels: The Proposal}
+\begin{frame}{Qiantan Hotels: The Proposal}
 
-Wen is commercial director of Meridian Hotels, a group of 80 properties.
+Wendy is commercial director of Qiantan Hotels, a group of 80 properties.
 
 \bigskip
 
@@ -282,9 +282,9 @@ The first is Meeting 7's exchangeability for a continuous treatment. The second 
 \end{frame}
 
 % ====================================================================
-\begin{frame}{What the Assumptions Say at Meridian}
+\begin{frame}{What the Assumptions Say at Qiantan Hotels}
 
-What Wen's team says about the RM system:
+What Wendy's team says about the RM system:
 
 \begin{center}
 \small
@@ -301,7 +301,7 @@ What Wen's team says about the RM system:
 
 \medskip
 
-\textbf{Measured as of the moment the rate was set.} Booking pace recorded after the rate posted, or a competitor index that reacts to Meridian's own rate, is partly caused by $D$: a mediator or a collider (Meeting 7), and a bad control. Every signal in $X$ must be time-stamped before the rate.
+\textbf{Measured as of the moment the rate was set.} Booking pace recorded after the rate posted, or a competitor index that reacts to Qiantan Hotels' own rate, is partly caused by $D$: a mediator or a collider (Meeting 7), and a bad control. Every signal in $X$ must be time-stamped before the rate.
 
 \medskip
 
@@ -591,7 +591,7 @@ As an illustration, take $\theta = -1.56$, residual rate SD $0.10$ ($\E[\nu^2] =
 \end{frame}
 
 % ====================================================================
-\begin{frame}{The Price Elasticity at Meridian}
+\begin{frame}{The Price Elasticity at Qiantan Hotels}
 
 DML on the 87{,}600 hotel-nights: boosted-tree nuisances, folds formed by night.
 \[
@@ -646,7 +646,7 @@ Bookings change by the factor $(1 + g)^{-1.56}$ for a rate change $g$. The propo
 
 \begin{frame}{How Sure Is $-1.56$?}
 
-The standard error is that of the residual regression (Result 1.5). Two features of the Meridian logs decide which one:
+The standard error is that of the residual regression (Result 1.5). Two features of the Qiantan Hotels logs decide which one:
 \begin{itemize}
   \item All 80 hotels on the same night share demand shocks, and the group moves rates system-wide on some nights. Rows are \textbf{clustered by night}.
   \item The folds were formed by night for the same reason. Otherwise a night's shared shock sits in both the fitting and the scored fold.
@@ -691,7 +691,7 @@ The second term adds the spread across splits to the sampling error.
 
 \begin{itemize}
   \item The median is not moved by one unlucky split.
-  \item At Meridian every split keeps nights whole, so each one respects the clustering.
+  \item At Qiantan Hotels every split keeps nights whole, so each one respects the clustering.
   \item If estimates move materially across splits, the nuisance fits are unstable. That is a finding to report, not noise to average away.
 \end{itemize}
 \end{frame}
@@ -718,13 +718,13 @@ Report at least two learners. If boosted trees and a lasso give materially diffe
 % ====================================================================
 \begin{frame}{Overlap with a Continuous Rate}
 
-Wherever $\Var(D \mid X)$ is near zero there is no comparison, and those rows contribute nothing however many there are. At Meridian, on 12\% of nights the system pins the rate to its rule.
+Wherever $\Var(D \mid X)$ is near zero there is no comparison, and those rows contribute nothing however many there are. At Qiantan Hotels, on 12\% of nights the system pins the rate to its rule.
 
 \bigskip
 
 There are two diagnostics.
 \begin{enumerate}
-  \item \textbf{The rate model's out-of-fold $R^2$.} At Meridian it is $0.91$: the signals explain 91\% of the variance of log rate, and 9\% is left to identify $\theta$. Near 1 means little is left.
+  \item \textbf{The rate model's out-of-fold $R^2$.} At Qiantan Hotels it is $0.91$: the signals explain 91\% of the variance of log rate, and 9\% is left to identify $\theta$. Near 1 means little is left.
   \item \textbf{The share of $\sum_i \tilde D_i^2$ from each kind of night}, which says whom the estimate describes.
 \end{enumerate}
 
@@ -744,7 +744,7 @@ Constant elasticity and a constant cost $c$ per occupied room give the profit-ma
 \[
 P^{\ast} = c\,\frac{\theta}{1 + \theta} = 200 \times \frac{-1.56}{-0.56} = \text{\textyen}\,557,
 \]
-a cut of about 30\%. Should Wen make it?
+a cut of about 30\%. Should Wendy make it?
 
 \bigskip
 
@@ -871,7 +871,7 @@ A three-room surprise on a rare untreated resort night moves $\phi$ by 30. Where
 
 % ====================================================================
 % [RELEASE R5: the overrides; the event-flag benchmark]
-\begin{frame}{One More Thing, Says Wen}
+\begin{frame}{One More Thing, Says Wendy}
 
 Property revenue managers \textbf{override} the system on about 8\% of nights. They override on local knowledge: a wedding block, a competitor closing a wing, a conference that never reached the event calendar.
 
@@ -903,7 +903,7 @@ Suppose an omitted confounder $U$ would explain a share $R^2_{D}$ of the residua
 \medskip
 
 \begin{itemize}
-  \item The second factor comes from the residuals. At Meridian it is $3.0$.
+  \item The second factor comes from the residuals. At Qiantan Hotels it is $3.0$.
   \item The first needs two shares nobody can measure: how much of the \emph{leftover} rate and of the \emph{leftover} bookings $U$ would explain. So use the bound in two ways, to find the strength that would change the decision and to compare with observed signals.
   \item The bound is worst-case. It assumes the part of $U$ not explained by $D$ and $X$ lines up perfectly with the outcome.
 \end{itemize}
@@ -993,7 +993,7 @@ Each one has appeared today:
 \begin{itemize}
   \item \spinestep{Estimand.} The elasticity of bookings with respect to the rate, held against the break-even $-1.32$. With varying slopes, the partially linear $\theta$ is a $\Var(D \mid X)$-weighted average; the interactive model targets the ATE.
   \item \spinestep{Identification.} The RM system is the assignment mechanism: every signal it used, measured before the rate, and some rate variation left over. Pinned nights contribute nothing.
-  \item \spinestep{Estimation.} Residualize both sides (FWL); fit the nuisances flexibly and out of fold. The bias is then a product of errors, plus the rate model's squared error. At Meridian, $\hat\theta = -1.56$.
+  \item \spinestep{Estimation.} Residualize both sides (FWL); fit the nuisances flexibly and out of fold. The bias is then a product of errors, plus the rate model's squared error. At Qiantan Hotels, $\hat\theta = -1.56$.
   \item \spinestep{Inference.} Folds and SEs by night give $[-1.62, -1.50]$.
  Repeat the split; report two learners.
   \item \spinestep{Sensitivity.} An unlogged override reaches the break-even at a partial $R^2$ of 7.7\% on each side, about 1.6 times the event flag.

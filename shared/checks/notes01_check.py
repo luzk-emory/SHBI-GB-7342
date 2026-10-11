@@ -30,7 +30,7 @@ def cm(dv):
 check("collider E[Y|D=1,C=1]=1/2", "0.5", cm(1)); check("collider E[Y|D=0,C=1]=1", "1", cm(0))
 check("collider difference -1/2", "-0.5", cm(1) - cm(0))
 
-# --- Section 2: FitLife
+# --- Section 2: Yangsi Fitness
 check("break-even 300/1,000 = 0.30", "0.30", 300 / 1000)
 tab = {'A': (1, 1, 1), 'B': (1, 1, 1), 'C': (0, 1, 1), 'D': (1, 1, 1), 'E': (0, 0, 0), 'F': (0, 1, 0), 'G': (0, 1, 0), 'H': (1, 1, 0)}
 tau = {k: v[1] - v[0] for k, v in tab.items()}

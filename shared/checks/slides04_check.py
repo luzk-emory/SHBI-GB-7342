@@ -1,4 +1,4 @@
-"""Arithmetic checks for meetings/m04/slides.tex (lecture case: Lin's coupon programme, coffee chain, M4 releases;
+"""Arithmetic checks for meetings/m04/slides.tex (lecture case: Lena's coupon programme, Houtan Coffee, M4 releases;
 Region 2's four cells). The slides use their own numbers, not the notes' worked example. Run: python3 slides04_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction as F
@@ -90,7 +90,7 @@ check("control arm type gap 0.30 (ties)", "0.30", mu0_E - mu0_A); check("control
 check("T tau high 0.125", "0.125", m1H - m0H); check("T tau low 0.125", "0.125", m1L - m0L)
 check("causal tree root 0.125", "0.125", ate)
 
-# ── Lin's tree on half A (counts behind the printed lifts; 250 per arm per analyst leaf, executives 200 app / 300 no app) ──
+# ── Lena's tree on half A (counts behind the printed lifts; 250 per arm per analyst leaf, executives 200 app / 300 no app) ──
 halfA = {'AL': (58, 250, 0, 250), 'AH': (130, 250, 77, 250), 'Eapp': (108, 200, 70, 200), 'Eno': (141, 300, 138, 300)}
 for k, lab in [('AL', "0.23"), ('AH', "0.21"), ('Eapp', "0.19"), ('Eno', "0.01")]:
     a, n1, b, n0 = halfA[k]; check(f"half-A lift {k}", lab, F(a, n1) - F(b, n0))

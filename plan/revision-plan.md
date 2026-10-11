@@ -57,10 +57,10 @@ There are two categories, and the course keeps them distinct.
 | Lab 2 | AI as **tool**: an LLM writes the A/B readout; students verify it with simulation tests |
 | Lab 5 | AI as **decision-maker**: an LLM ranks customers from text profiles, evaluated by IPW against model rules |
 | Lab 7 (optional) | AI as **analyst**: audit a tool-calling agent's observational analysis, then add a guardrail |
-| Lab 9 | AI as **source of data**: LLM labels versus gold, PPI, embeddings as DML controls, a leakage demo |
+| Lab 9 | AI as **source of data**: LLM labels of review text versus gold quality, PPI, embeddings as DML controls, a leakage demo, a simulator with a confounding dial (the course's LLM-coded feature lives here) |
 | Lab 10 | AI as **intervention**: evaluate an AI staffing-tool rollout with DiD |
 | A1 | Write the readout once by hand, then delegate it to an LLM and verify |
-| A3 | A simulator fitted to the coupon logs, with a planted effect and a confounding dial, as the testbed for the logs-based estimators and policy (an LLM-coded feature to be decided) |
+| A3 | A student-built simulator of real grocery data (dunnhumby), checked against the instructor's locked simulator with planted elasticities; no LLM-coded feature |
 | M9 Section 3 (optional lab) | Three routes compared on the simulator: plug-in, decision-focused, policy tree |
 
 ## 3. Work remaining, in suggested order
@@ -74,10 +74,9 @@ There are two categories, and the course keeps them distinct.
    (cached LLM outputs, gold labels) and Lab 7 (agent harness; optional for students).
 4. **Assignments.**
    - A1 to A4 handouts.
-   - The locked RCT evaluation set and an autograder for A2 and A3.
-   - A simulator of the coupon logs with a planted effect and a confounding dial for A3, built on the generator
-     behind Lab 7's logs; `m09_sim.py` is a template. An LLM-coded feature for A3 is to be decided.
-   - A4 on panel data, built on the Rossmann rollout of Lab 10.
+   - Data and grading as in Section 6: a resampled Hillstrom file with course costs and a locked holdout (A1, A2);
+     dunnhumby with a locked simulator of planted-elasticity scenarios (A3); Favorita with a planted rollout (A4).
+   - Grading checks that the pipeline runs and is reasoned correctly, not a performance score.
 5. **Review passes.** Pass 2: independent check of every numbered Result. Pass 3: a student reads each meeting one
    week ahead.
 6. **Optional.**
@@ -93,8 +92,51 @@ Decide before building the affected pieces. Calls already settled are recorded i
 the syllabus and `CHANGELOG.md`.
 
 1. Staggered DiD: the warning frame is in the M10 deck; whether Lab 10 adds it as an optional extension.
-2. A2 and A3 pose the same decision (RCT-trained versus logs-trained), so both need an autograder and a locked set.
-3. The proposal is due Sunday 8 November and presented two days later.
-4. Whether A3 includes an LLM-coded feature (depends on the problem and the data available).
-5. Final-project appendices: an LLM review of the draft plus responses, and a planted-effect validation of the design.
-6. Exam weights: Exam II covers more lectures than Exam I; consider weighting it more.
+2. The proposal is due Sunday 8 November and presented two days later.
+3. Final-project appendices: an LLM review of the draft plus responses, and a planted-effect validation of the design.
+4. Exam weights: Exam II covers more lectures than Exam I; consider weighting it more.
+
+Settled on 10 October: A2 and A3 no longer pose the same decision on the same locked set (A3 moves to dunnhumby), and
+the LLM-coded feature is in Lab 9, not A3 (dunnhumby has no text).
+
+## 5. Names
+
+All businesses, people and data in the cases and notes are fictional. Business names come from places near the
+Qiantan campus; people have English names. Lab notebooks may describe the public data behind each semi-synthetic world.
+
+| Where | Business | Person |
+|---|---|---|
+| Case A, M1–M7 lectures | Houtan Coffee, a coffee chain (10,000 loyalty members) | Lena, customer analytics |
+| Case B, M8–M9 lectures | Qiantan Hotels, a group of 80 hotels (folder `cases/caseB-qiantan`) | Wendy, commercial director |
+| Case C, M10–M11 lectures | Sanlin Home, a home-goods chain of 120 stores | Dana, store operations |
+| Notes' worked examples, M1, M3, M7, M10, H5, H6 | Yangsi Fitness, a fitness-club chain | |
+| Notes' worked examples, elsewhere | Pujiang Delivery, a food-delivery platform (its subscription: Pujiang Plus) | |
+| Case A, bonus part | Rivergate, a fulfillment business | |
+
+## 6. Data for labs and assignments
+
+**Rule.** Labs use one semi-synthetic world per block, with planted truth, so students can check their own answers.
+Assignments use data no lab touches; each is graded on a randomized holdout or a planted effect. Assignments train the
+analysis pipeline; they are not graded on a performance score. Data problems (sparse outcomes, memorized public data,
+real shocks in a window) are handled by simulation and resampling. The instructor checked the terms of every source:
+non-commercial teaching use is permitted.
+
+| Lab | Data | Real / planted |
+|---|---|---|
+| 1–6 | Starbucks rewards data, semi-synthetic: the Houtan Coffee RCT | Real customer covariates and offer portfolio. Planted: randomization, $\tau(x)$, three coupon depths, pre-period spend for CUPED, text profiles for Lab 5. Lab 3 uses three versions with different $\tau(x)$ |
+| 7 | Logs from the same world, assigned by a known targeting rule | Overlap dial; truth from the RCT version |
+| 8, 9 | Inside Airbnb, semi-synthetic (lodging pricing) | Real listings, host prices and review text. Planted: demand with heterogeneous elasticity $\varepsilon(x)$, and a latent quality in the text that confounds price and demand. Lab 8: DML elasticity and optimal price. Lab 9: LLM labels versus gold quality, PPI, embeddings as controls, simulator with a confounding dial |
+| 10 | Rossmann store sales, planted AI-tool rollout | Real sales; planted effect and adoption rule |
+| 11 | Proposition 99, plus one Rossmann flagship | Prop 99: the published estimate as benchmark. Flagship: planted effect |
+
+| Assignment | Data | Graded on |
+|---|---|---|
+| A1 | Hillstrom email RCT, resampled, with course-specific costs | ATE, CUPED on `history`, SRM, break-even, and the LLM readout |
+| A2 | Hillstrom, three arms | Frozen policies scored by IPW on a locked holdout of at least 20,000 rows, with paired comparisons (the Womens arm has real heterogeneity, the Mens arm almost none) |
+| A3 | dunnhumby "Breakfast at the Frat" (grocery) | Display effect by IPW and AIPW with overlap (M7); price elasticity by DML and a recommended price (M8); a student-built simulator (M9). Scored by the instructor's locked simulator across planted-elasticity scenarios |
+| A4 | Favorita (grocery panel), planted rollout | Adoption tied to real pre-trends; effect on margin; a small second wave for staggered timing; one flagship for synthetic control. The April 2016 earthquake sits in the window |
+
+**Next.** The syllabus and `schedule.xlsx` follow this plan (11 Oct). Access and download details go in each lab's and assignment's instructions, not here.
+Build, in calendar order: the Houtan Coffee world (Labs 1–7; Lab 1 is 20 Oct), the Hillstrom file (A1 out 22 Oct),
+then the A2 holdout, the Airbnb world, the dunnhumby simulator, and the Rossmann and Favorita panels.
+

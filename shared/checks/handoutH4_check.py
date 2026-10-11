@@ -11,7 +11,7 @@ def chk(label, claimed, computed, tol):
         fails.append(label)
 
 
-# Worked example: QuickBite Plus, campaign chosen by city managers (instrument not randomised)
+# Worked example: Pujiang Plus, campaign chosen by city managers (instrument not randomised)
 cust = {("big", 1): 8000, ("big", 0): 4000, ("small", 1): 2000, ("small", 0): 6000}
 plus = {1: 0.30, 0: 0.05}
 orders = {("big", 1): 5.30, ("big", 0): 5.00, ("small", 1): 3.30, ("small", 0): 3.00}

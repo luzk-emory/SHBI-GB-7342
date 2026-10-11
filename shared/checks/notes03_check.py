@@ -29,7 +29,7 @@ ok = f0.min() >= 0.3 and f1.max() <= 1 and np.all(np.diff(f1 - f0) < 0) and np.a
 print(f"{'OK ' if ok else 'MISMATCH'} | Figure 1: curves in [0.3,1], both rise, gap shrinks (gap {f1[0]-f0[0]:.2f} -> {f1[-1]-f0[-1]:.2f})")
 if not ok: FAIL.append("figure 1")
 
-# --- Section 2: FitLife retention offer
+# --- Section 2: Yangsi Fitness retention offer
 be = 80 / 600
 check("break-even 80/600 = 0.133", "0.133", be)
 seg = {'Short, low': (0.62, 0.50), 'Short, high': (0.70, 0.48), 'Long, low': (0.84, 0.80), 'Long, high': (0.93, 0.90)}

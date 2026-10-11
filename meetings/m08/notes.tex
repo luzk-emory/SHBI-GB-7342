@@ -164,7 +164,7 @@ charged.
 %=====================================================================================
 \sectiontwo
 
-\paragraph{Setting.} QuickBite's system sets each zone's delivery fee by the hour from demand and courier-supply signals. Should the
+\paragraph{Setting.} Pujiang Delivery's system sets each zone's delivery fee by the hour from demand and courier-supply signals. Should the
 standard fee rise from ¥4.0 to ¥4.4? Margin per order excluding the fee is ¥6. Profit per zone-hour is $Q(f)(6 + f)$, whose elasticity
 with respect to $f$ is $\varepsilon + f/(6 + f) = \varepsilon + 0.4$ at $f = 4$. A rise pays only if the order elasticity $\varepsilon$ exceeds $-0.4$.
 The data are 40{,}000 zone-hours from a simulation calibrated to this setting (true elasticity $-0.6$), with $Y$ log orders, $D$ log fee, and $X$ hour, rain, weekend, zone, and supply signals.
@@ -228,7 +228,7 @@ A colleague suggests adding ``orders in the same zone in the previous 15 minutes
 each.
 \end{exercise}
 \answer{Previous-15-minute orders: fine only if measured before this hour's fee was set and not affected by it; if the window overlaps the
-fee's posting it is partly caused by $D$ (a mediator). Competitor fee: if competitors react to QuickBite's fee within the hour, it is
+fee's posting it is partly caused by $D$ (a mediator). Competitor fee: if competitors react to Pujiang Delivery's fee within the hour, it is
 post-treatment and a bad control; if it is set independently beforehand, it is a legitimate confounder. Check timestamps against the fee-setting
 time.}
 

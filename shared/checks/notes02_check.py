@@ -40,7 +40,7 @@ fp = (np.abs(zs) > z(.975)).any(1).mean()
 check("peeking 10 looks -> about 19%", "0.19", fp, tol=0.01)
 check("20 metrics x 5% -> about 1 false positive", "1", 20 * 0.05)
 
-# --- Section 2: QuickBite
+# --- Section 2: Pujiang Delivery
 check("SRM chi2 = 2 x 240^2/10,000 = 11.52", "11.52", ((10240 - 10000) ** 2 + (9760 - 10000) ** 2) / 10000)
 check("SRM p = 0.0007", "0.0007", stats.chi2.sf(11.52, 1))
 se = 18 * math.sqrt(2 / 4000); tau = 21.80 - 19.90

@@ -1,6 +1,6 @@
-# Case B: Wen's rate decisions
+# Case B: Wendy's rate decisions
 
-**Meridian Hotels, Meetings 8–9.** Fictional teaching case: the company, the people, and all data are invented.
+**Qiantan Hotels, Meetings 8–9.** Fictional teaching case: the company, the people, and all data are invented.
 
 This case is handed out one part at a time. When a task says *commit*, write your answer down before the class discusses it.
 
@@ -14,13 +14,13 @@ Throughout: the current midweek premium rate is **¥800** a night, and the varia
 
 ### Part M8-R1. The proposal
 
-**Wen** is commercial director of Meridian Hotels, a group of 80 properties.
+**Wendy** is commercial director of Qiantan Hotels, a group of 80 properties.
 
 A revenue management (RM) system sets the rate for every hotel-night. It uses forecast demand, competitor rates, booking pace, and the event calendar. **No human sets these rates night by night**: the system is an automated decision-maker, and it has been for three years.
 
-On Wen's desk: sales proposes raising midweek premium rates by **8%** across the portfolio. Their evidence is the RM system's own reporting: nights with higher rates sell more rooms. Sales' reading: *demand is strong; the system is under-pricing.*
+On Wendy's desk: sales proposes raising midweek premium rates by **8%** across the portfolio. Their evidence is the RM system's own reporting: nights with higher rates sell more rooms. Sales' reading: *demand is strong; the system is under-pricing.*
 
-Wen has three years of logs: 80 hotels × 1,095 nights, with 47 recorded signals per night.
+Wendy has three years of logs: 80 hotels × 1,095 nights, with 47 recorded signals per night.
 
 Six comparable nights from one hotel:
 
@@ -36,7 +36,7 @@ Six comparable nights from one hotel:
 **Tasks**
 1. An 8% rise changes contribution per occupied room from ¥600 to what? For the rise to pay, bookings must fall by less than what percentage? Express the break-even as an elasticity.
 2. In pairs: compute the pooled slope of $Y$ on $D$ across the six nights.
-3. Commit: does Wen raise rates?
+3. Commit: does Wendy raise rates?
 
 ### Part M8-R2. Subtract what the system already knew
 
@@ -47,7 +47,7 @@ Within each category the mean rate and mean bookings are:
 | Standard | 40 | 100 |
 | Premium | 80 | 200 |
 
-What Wen's team says about the RM system:
+What Wendy's team says about the RM system:
 - "The RM system is the only thing setting rates."
 - "Every input it used is in the feed."
 - "Rates still move for reasons unrelated to demand."
@@ -94,11 +94,11 @@ On some nights the RM system opens a **10% discount** for the final 48 hours. Tw
 3. The resort models are off: $\hat\mu_1 = 74$ and $\hat e = 0.8$. What do regression alone, weighting alone, and AIPW give for mean bookings with the discount at resorts?
 4. Compute the AIPW score of a resort night without the discount that booked 57 rooms. Why is it so far from 12?
 
-### Part M8-R5. One more thing, says Wen
+### Part M8-R5. One more thing, says Wendy
 
 > Property revenue managers **override** the system on about **8% of nights**. They override on local knowledge: a wedding block, a competitor closing a wing, a conference that never reached the event calendar. The override is logged. **The reason is not.**
 
-Wen's analyst adds two numbers from the logs. The ratio $\mathrm{sd}(\tilde Y - \hat\theta\tilde D)/\mathrm{sd}(\tilde D)$ is **3.0**. Dropping the **event flag** and re-estimating, the flag explains **4%** of the leftover rate variance and **6%** of the leftover bookings variance.
+Wendy's analyst adds two numbers from the logs. The ratio $\mathrm{sd}(\tilde Y - \hat\theta\tilde D)/\mathrm{sd}(\tilde D)$ is **3.0**. Dropping the **event flag** and re-estimating, the flag explains **4%** of the leftover rate variance and **6%** of the leftover bookings variance.
 
 **Tasks**
 1. Which of the team's three sentences in Part R2 is now false? What does that do to the estimate?
@@ -109,20 +109,20 @@ Wen's analyst adds two numbers from the logs. The ratio $\mathrm{sd}(\tilde Y - 
 
 ---
 
-## Meeting 9: Generative AI at Meridian
+## Meeting 9: Generative AI at Qiantan Hotels
 
-### Part M9-R1. A simulator of Meridian
+### Part M9-R1. A simulator of Qiantan Hotels
 
 Meeting 8 ended on the overrides: about 8% of nights, logged, with no reason recorded. The elasticity of −1.56 assumed they did no harm.
 
-Meridian's data-science team has trained a **generative model of the logs**. Given a hotel-night's 47 signals and a rate, it draws a number of premium bookings. It was fitted on the 87,600 hotel-nights of Meeting 8. On top of what it learned, the team **planted** two things:
+Qiantan Hotels' data-science team has trained a **generative model of the logs**. Given a hotel-night's 47 signals and a rate, it draws a number of premium bookings. It was fitted on the 87,600 hotel-nights of Meeting 8. On top of what it learned, the team **planted** two things:
 - a true elasticity of **−1.50** on every night;
 - an **override effect**: on 8% of nights an unrecorded local event (a wedding block, a conference) raises demand by 12%, and the manager raises the rate by 10%.
 
 **Tasks**
-1. The simulator answers "how many bookings at a different rate?" for any night. What must be true of Meridian's real logs for that answer to be a causal effect? Which meeting's assumption is it?
+1. The simulator answers "how many bookings at a different rate?" for any night. What must be true of Qiantan Hotels' real logs for that answer to be a causal effect? Which meeting's assumption is it?
 2. List what the simulator took from the data and what the analyst chose.
-3. Commit: can the simulator tell Wen the true elasticity of Meridian's guests?
+3. Commit: can the simulator tell Wendy the true elasticity of Qiantan Hotels' guests?
 
 ### Part M9-R2. An estimator testbed
 
@@ -138,13 +138,13 @@ The team draws 200 simulated datasets with the same hotels, nights, and signals 
 
 **Tasks**
 1. Compute the bias of each row.
-2. Which estimator would you use on data shaped like Meridian's? Why does lasso do worse than boosted trees here? (Recall how the RM rule is written.)
-3. With the override effect planted, DML is biased toward zero. If the real overrides behave like the planted ones, where would the true elasticity lie, given Meeting 8's −1.56? Does Wen's decision about the 8% rise (break-even −1.32) change?
+2. Which estimator would you use on data shaped like Qiantan Hotels'? Why does lasso do worse than boosted trees here? (Recall how the RM rule is written.)
+3. With the override effect planted, DML is biased toward zero. If the real overrides behave like the planted ones, where would the true elasticity lie, given Meeting 8's −1.56? Does Wendy's decision about the 8% rise (break-even −1.32) change?
 4. What can this testbed **not** tell you about the real overrides?
 
 ### Part M9-R3. A pipeline testbed
 
-The RM vendor offers a new engine: a boosted-tree demand model fitted to the logs, and an optimizer that posts the rate with the highest **predicted** contribution, (rate − ¥200) × bookings, night by night. Wen's analyst builds a rival: price from the DML elasticity. Both are compared with the current RM rule.
+The RM vendor offers a new engine: a boosted-tree demand model fitted to the logs, and an optimizer that posts the rate with the highest **predicted** contribution, (rate − ¥200) × bookings, night by night. Wendy's analyst builds a rival: price from the DML elasticity. Both are compared with the current RM rule.
 
 The team builds a **second simulator** from the same logs, with a neural network in place of boosted trees, and the same planted truth. On each simulator, an **oracle** knows the planted demand and posts the best rate. Regret is the oracle's contribution minus the pipeline's, per hotel-night.
 
@@ -164,20 +164,20 @@ The team builds a **second simulator** from the same logs, with a neural network
 3. 14% of the vendor's rates lie above ¥1,920, the 95th percentile of the logged rates, where the logs are thin. What do both simulators know about bookings there? What does that do to the regret numbers on those nights?
 4. The vendor's optimizer picks, every night, the rate its model likes most. Why does that make its errors larger than its demand model's average error?
 5. What does the backtest support, and what not? Would you trust either simulator more after it?
-6. Recommend a pipeline to Wen, and the check you would run when it goes live.
+6. Recommend a pipeline to Wendy, and the check you would run when it goes live.
 
 ### Part M9-R4. Ask the model instead?
 
-A second vendor offers "synthetic guests": a language model plays 10,000 guests, each shown a Meridian hotel at ¥800 and at ¥864 and asked whether they would book. Its report: **elasticity −0.9**. *"Demand is inelastic. Raise rates."*
+A second vendor offers "synthetic guests": a language model plays 10,000 guests, each shown a Qiantan hotel at ¥800 and at ¥864 and asked whether they would book. Its report: **elasticity −0.9**. *"Demand is inelastic. Raise rates."*
 
 **Tasks**
 1. In the simulator of Part R1, where did the truth come from? Where does it come from here?
 2. Against Meeting 8's −1.56 and the break-even of −1.32, the two answers point in opposite directions. Which do you believe, and what evidence could settle it?
-3. Could the synthetic guests serve as a testbed for Meridian's estimators? Why or why not?
+3. Could the synthetic guests serve as a testbed for Qiantan Hotels' estimators? Why or why not?
 
 ### Part M9-R5. Reviews, read by a model
 
-Wen did not take the 8% rise on trust. In Q3 she tested it: at 40 hotels, a coin chose each hotel-week's midweek premium rate, the current one or 8% higher. Bookings are the main outcome. The guardrail is guest reviews: *stop the rise if complaints about price or value go up by more than 5 points.*
+Wendy did not take the 8% rise on trust. In Q3 she tested it: at 40 hotels, a coin chose each hotel-week's midweek premium rate, the current one or 8% higher. Bookings are the main outcome. The guardrail is guest reviews: *stop the rise if complaints about price or value go up by more than 5 points.*
 
 **Bookings.** On higher-rate weeks, midweek premium bookings were **12.4% lower** (SE 1.2%).
 
@@ -223,7 +223,7 @@ Back to Meeting 8's elasticity. Each hotel has a listing page, and each stay a r
 
 ### Part M9-R7. The memo
 
-Write the memo to Wen, in five sentences or fewer:
+Write the memo to Wendy, in five sentences or fewer:
 1. the 8% rise: what Meeting 8, the testbed, and the Q3 test together say;
 2. the vendor's engine: adopt, reject, or pilot, and how;
 3. the synthetic-guest report;
@@ -240,13 +240,13 @@ These parts are optional. They use the same hotels, and Part M9-R3's backtest re
 
 Meeting 8's estimate rests on an assumption the logs cannot check: nothing unrecorded moved both rates and bookings. The overrides break it.
 
-**What Wen did next.** For six months the booking engine flipped a coin for every premium hotel-night:
+**What Wendy did next.** For six months the booking engine flipped a coin for every premium hotel-night:
 - **heads:** loyalty members see a **member rate 8% below** the system's rate;
 - **tails:** they see the system's rate.
 
 Managers kept their override. On a heads night they could block the member rate; on a tails night they could apply it by hand.
 
-On Wen's desk: make the member rate permanent, portfolio-wide.
+On Wendy's desk: make the member rate permanent, portfolio-wide.
 
 **Tasks**
 1. An 8% member rate changes contribution per occupied room from ¥600 to what? By what percentage must bookings rise for the cut to pay? Express the break-even as an elasticity.
@@ -265,7 +265,7 @@ One thousand premium hotel-nights from hotels where the coin was 50/50. Member b
 
 Nightly bookings have a standard deviation of about 20.
 
-From Wen's description of the test:
+From Wendy's description of the test:
 - "The engine drew the coin within each hotel and month; resorts drew heads more often than airport hotels."
 - "Heads changed one thing: the rate members were shown."
 - "Managers honored most heads and added the member rate on few tails."
@@ -275,7 +275,7 @@ From Wen's description of the test:
 1. Compare bookings on nights the member rate was **shown** with nights it was not.
 2. Compare bookings on **heads** nights with tails nights.
 3. Compare the share of nights the rate was shown on heads nights with the share on tails nights.
-4. Commit: does Wen roll it out?
+4. Commit: does Wendy roll it out?
 
 Then:
 
@@ -286,7 +286,7 @@ Then:
 
 ### Part B3. Two things nobody mentioned
 
-**Marketing's email.** Marketing confirms that on every heads night the engine also emailed *"Members' Week at Meridian"* to members who had searched that hotel, **whether or not the manager blocked the rate**.
+**Marketing's email.** Marketing confirms that on every heads night the engine also emailed *"Members' Week at Qiantan Hotels"* to members who had searched that hotel, **whether or not the manager blocked the rate**.
 
 **Two old-engine hotels.** Two hotels ran an old booking engine that **could not display** member rates. Their coin still flipped and the email still went out.
 
@@ -309,7 +309,7 @@ The share of nights the member rate was shown is 0.70 on heads and 0.10 on tails
 3. Compute the ratio within each kind of hotel, then pooled across both, ignoring hotel type. Why do they differ?
 4. Which controls must the analysis include, which may it include, and which must it never include?
 5. Let $a$ be the email's direct effect on bookings per heads night, whatever its size. Write the complier elasticity as a function of $a$, using the hand log with the email (ITT 6.0). How large would $a$ have to be for the member rate to stop paying? Compare it with what the old-engine hotels measured.
-6. The permanent program would keep sending the "Members' Week" email. Is the email's effect still a bias? Which number does Wen's decision need?
+6. The permanent program would keep sending the "Members' Week" email. Is the email's effect still a bias? Which number does Wendy's decision need?
 
 ### Part B4. Candidate-instrument audit
 

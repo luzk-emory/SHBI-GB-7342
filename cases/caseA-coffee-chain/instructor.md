@@ -1,10 +1,10 @@
-# Case A: Lin's Coupon Program: Instructor Version
+# Case A: Lena's Coupon Program: Instructor Version
 
 **Meetings 1–7. Instructor only: contains every answer and all future releases.** Distribute the student parts one at a time, on paper or as single-part files, never the full student file in advance.
 
 ## 1. What the case does
 
-One decision runs through seven meetings: *should this coffee chain send coupons, to whom, and was the program it ran worth it?* Every meeting adds one reason the previous number was not yet the decision number.
+One decision runs through seven meetings: *should Houtan Coffee send coupons, to whom, and was the program it ran worth it?* Every meeting adds one reason the previous number was not yet the decision number.
 
 Each meeting follows the course spine: **estimand → identification → estimation**, with uncertainty taken from the design.
 
@@ -49,7 +49,7 @@ Minutes are elapsed minutes in the meeting and approximate. **Retime when each d
 | M2-R3 | M2 B | 60–80 | `[RELEASE R3]` | "The Lapsed Test Is Too Small"; CUPED frames |
 | M2-R4 | M2 B | 80–90 | `[RELEASE R4]` | "The Design Effect" |
 | M2-R6 | M2 B | 92–110 | `[RELEASE R6]` | "Assignment and Receipt" to "Which Number for Which Decision" |
-| M2-R5 | take-home | | with "Lin's Test Plan" | (the memo is finished at home) |
+| M2-R5 | take-home | | with "Lena's Test Plan" | (the memo is finished at home) |
 | M3-R1 | M3 A | 0–10 | `[RELEASE R1]` "Two Lists for 5,000 Coupons" | "What the Q2 Draw Buys"; "The Number That Decides It" |
 | M3-R2 | M3 A | 30–40 | `[RELEASE R2]` | the table on "The Interaction Model: Both Worlds on Every Row"; "Read the Model Through Its Predictions" |
 | M3-R2b | M3 A | 40–45 | `[RELEASE R2b]` | "Is the Gap Itself Noise?" |
@@ -58,7 +58,7 @@ Minutes are elapsed minutes in the meeting and approximate. **Retime when each d
 | M3-R6 | M3 C | 120–125 | Lab 3 opener | answers come out of the lab |
 | M4-R1 | M4 A | 0–5 | `[RELEASE R1]` "A Segment Card" | "What the CFO's Rule Buys" |
 | M4-R2 | M4 A | 5–15 | `[RELEASE R2]` "Region 2: Two Fields, Four Cells" | "The Number That Decides Each Line" |
-| M4-R3 | M4 A | 25–30 | `[RELEASE R3]` "Lin's Tree on Half A" | **half-B outcomes: nothing until every pair has submitted**; "Two Noisy Splits", "The Winner's Curse", and "What Honesty Costs" answer tasks 2–4 |
+| M4-R3 | M4 A | 25–30 | `[RELEASE R3]` "Lena's Tree on Half A" | **half-B outcomes: nothing until every pair has submitted**; "Two Noisy Splits", "The Winner's Curse", and "What Honesty Costs" answer tasks 2–4 |
 | M4-R4 | M4 A | 40–45 | `[RELEASE R4]` "H2: The Same Leaves on Half B" | that frame's table |
 | M4-R5 | M4 A | 45–50 | `[RELEASE R5]` "H3: The Card" | |
 | M5-R1 | M5 B | 50–55 | `[RELEASE R1]` "Three Lists, One Launch" | "Value and Gain" |
@@ -186,7 +186,7 @@ This part closes M2 with noncompliance and the LATE, the experimental core of in
 
 ### M3-R1
 - Rule: coupon iff $\tau(x) > \mu_1(x)/3$.
-- Marketing (active): $0.05 < 0.267$, −¥6.50 per coupon, **−¥32,500** for 5,000. Lin (lapsed): $0.20 > 0.100$, +¥3.00, **+¥15,000**.
+- Marketing (active): $0.05 < 0.267$, −¥6.50 per coupon, **−¥32,500** for 5,000. Lena (lapsed): $0.20 > 0.100$, +¥3.00, **+¥15,000**.
 - Sentences: 50/50 everywhere → independence within every $x$ and overlap by design. Frozen CRM → $X$ pre-treatment. **New joiners not in the draw → the Q3 list includes people outside the test's support.** That one is about the decision, not the estimate.
 
 ### M3-R2
@@ -361,7 +361,7 @@ Among openers: $250/500 = 0.50$ vs $250/250 = 1.00$, an "effect" of **−0.50** 
 4. The 200 are 50/50, so the effect is $0.5(10) + 0.5(6) = $ **8** orders a week, an ATE on the rollout mix. The volunteers' ATT is $0.2(10) + 0.8(6) = 6.8$. Her decision needs the 8.
 5. Value per trainee over four weeks $= 8 \times 4 \times 80 = ¥2{,}560 > ¥1{,}800$: pays. High: ¥3,200. Low: $6 \times 320 = ¥1{,}920$, which clears ¥1,800 by only ¥120, so a modest upward bias in the +6 would erase it. A good memo trains the high-skill group and runs a randomized pilot for the low-skill group.
 
-Rivergate is a take-home table of its own: the M7 notes' worked example (Section 2), on which they show AIPW and double robustness, is FitLife, not Rivergate. AIPW is not part of the take-home.
+Rivergate is a take-home table of its own: the M7 notes' worked example (Section 2), on which they show AIPW and double robustness, is Yangsi Fitness, not Rivergate. AIPW is not part of the take-home.
 
 ## 6. Grading a recommendation (any part)
 

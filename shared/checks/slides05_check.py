@@ -1,4 +1,4 @@
-"""Arithmetic checks for meetings/m05/slides.tex (lecture case: Lin's coupon programme, coffee chain, M5 releases).
+"""Arithmetic checks for meetings/m05/slides.tex (lecture case: Lena's coupon programme, Houtan Coffee, M5 releases).
 The slides use their own numbers, not the notes' worked example. Run: python3 slides05_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction as F

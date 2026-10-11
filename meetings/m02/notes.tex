@@ -339,12 +339,12 @@ it matters.}
 %=====================================================================================
 \sectiontwo
 
-\paragraph{Setting.} QuickBite, a food-delivery platform, tests a ¥10 discount on a customer's second order.
+\paragraph{Setting.} Pujiang Delivery, a food-delivery platform, tests a ¥10 discount on a customer's second order.
 The outcome $Y$ is the customer's gross margin over the next 30 days, before the discount cost. The discount
 costs ¥1.50 per customer offered on average (most do not redeem), so the break-even is $\tau^\ast = $ ¥1.50.
 Customers are randomized 50/50, $n_1 = n_0 = 4{,}000$.
 
-\paragraph{Step 1: checks.} Arm sizes match the plan. (In an earlier QuickBite test that planned a 50/50 split
+\paragraph{Step 1: checks.} Arm sizes match the plan. (In an earlier Pujiang Delivery test that planned a 50/50 split
 of 20{,}000 and logged 10{,}240 and 9{,}760, $\chi^2 = 2 \times 240^2/10{,}000 = 11.52$, $p = 0.0007$: that test
 was not read until a logging fault was fixed.)
 
@@ -381,7 +381,7 @@ discount gains about ¥12 of margin) but not a new verdict, and its interval is 
 follow-up at about 8{,}200 per arm with CUPED and 30-day margin declared as the primary metric.
 
 \begin{exercise}[computation]
-QuickBite plans the follow-up by zone instead: zones of 400 customers, $\rho_c = 0.005$, CUPED variance as
+Pujiang Delivery plans the follow-up by zone instead: zones of 400 customers, $\rho_c = 0.005$, CUPED variance as
 above. How many zones per arm give the same power for a ¥0.50 margin above break-even?
 \end{exercise}
 \answer{$\text{DEFF} = 1 + 399 \times 0.005 = 2.995$. Customers needed per arm: $8{,}175 \times 2.995 \approx 24{,}480$, so

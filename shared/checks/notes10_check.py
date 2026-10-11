@@ -1,4 +1,4 @@
-# Independent arithmetic check of notes10.tex (Panel data and DiD), FitLife worked example and exercise.
+# Independent arithmetic check of notes10.tex (Panel data and DiD), Yangsi Fitness worked example and exercise.
 import sys
 from math import sqrt, log
 import numpy as np

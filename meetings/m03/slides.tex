@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 3 lecture slides. Running case: Lin's coupon programme at a coffee chain (cases/caseA-coffee-chain,
-% Meeting 3 releases R1 to R3). The notes' worked example (FitLife) is deliberately not reproduced here.
+% Meeting 3 lecture slides. Running case: Lena's coupon programme at Houtan Coffee (cases/caseA-coffee-chain,
+% Meeting 3 releases R1 to R3). The notes' worked example (Yangsi Fitness) is deliberately not reproduced here.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Block A follows notes Sections 1.1 to 1.4; block B follows Sections 1.5 and 1.6.
 % Every number is checked by shared/checks/slides03_check.py.
@@ -120,13 +120,13 @@
 % [RELEASE R1: the Q3 budget and the two proposed lists]
 \begin{frame}{Two Lists for 5{,}000 Coupons}
 
-Meeting 2 settled one question: \textbf{do not coupon everyone}. The CFO has approved 5{,}000 coupons for Q3, half the 10{,}000-member base. Two lists are on Lin's desk.
+Meeting 2 settled one question: \textbf{do not coupon everyone}. The CFO has approved 5{,}000 coupons for Q3, half the 10{,}000-member base. Two lists are on Lena's desk.
 
 \begin{center}
 \small
 \begin{tabular}{p{5.6cm}p{6.6cm}}
 \toprule
-\textbf{Marketing's data science team} & \textbf{Lin} \\
+\textbf{Marketing's data science team} & \textbf{Lena} \\
 \midrule
 A purchase model on last year's transactions. Send to the 5{,}000 members most likely to buy. & Send to the 5{,}000 members the coupon \emph{moves} most. \\[0.4em]
 \emph{``They are our best customers. They will redeem.''} & \emph{``That is exactly the problem.''} \\
@@ -148,7 +148,7 @@ Lapsed & 0.10 & 0.30 & 0.20 \\
 \end{tabular}
 \end{center}
 
-Marketing's model ranks the active members first; Lin's rule ranks the lapsed members first.
+Marketing's model ranks the active members first; Lena's rule ranks the lapsed members first.
 \end{frame}
 
 % ====================================================================
@@ -245,7 +245,7 @@ A deterministic rule makes independence given its input automatic and useless: o
 % ====================================================================
 \begin{frame}{What the Q2 Draw Buys}
 
-From Lin's documentation of the Q2 export:
+From Lena's documentation of the Q2 export:
 
 \begin{center}
 \small
@@ -278,7 +278,7 @@ The expected net value of treating a unit with covariates $x$ is $V(x) = m\,\tau
 the value of the best blanket rule. With a budget of $B$ treatments, treat the $B$ units with the largest positive $V(x)$.
 \end{result}
 
-At the coffee chain, $m = 30$, $c = 10$, $k = 0$: \quad coupon member $x$ $\iff$ $\tau(x) > \mu_1(x)/3$.
+At Houtan Coffee, $m = 30$, $c = 10$, $k = 0$: \quad coupon member $x$ $\iff$ $\tau(x) > \mu_1(x)/3$.
 
 \smallskip
 The rule needs \textbf{two numbers per member}: the lift and the purchase rate with the coupon.
@@ -293,7 +293,7 @@ The rule needs \textbf{two numbers per member}: the lift and the purchase rate w
 & $\tau(x)$ & $\mu_1(x)/3$ & \textbf{$V(x)$ per coupon} & \textbf{5{,}000 coupons} \\
 \midrule
 Marketing's list (active) & 0.05 & 0.267 & \textcolor{warnred}{$-$\textyen 6.50} & \textcolor{warnred}{$-$\textyen 32{,}500} \\
-Lin's list (lapsed) & 0.20 & 0.100 & \textcolor{sbgreen}{$+$\textyen 3.00} & \textcolor{sbgreen}{$+$\textyen 15{,}000} \\
+Lena's list (lapsed) & 0.20 & 0.100 & \textcolor{sbgreen}{$+$\textyen 3.00} & \textcolor{sbgreen}{$+$\textyen 15{,}000} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -420,7 +420,7 @@ The gap's two-sided $p$-value is $0.008$. Whether that is convincing depends on 
   \item The CATE $\tau(x)$ is a function; a list's average effect uses that list's weights.
   \item Prognostic variables move the level; effect modifiers move the effect. Here the level varies nineteen times as much.
   \item The draw identifies $\tau(x)$ within every $x$, but only on the test's support.
-  \item Coupon $x$ iff $\tau(x) > \mu_1(x)/3$: Lin's list earns $+$\textyen 15{,}000, marketing's loses \textyen 32{,}500.
+  \item Coupon $x$ iff $\tau(x) > \mu_1(x)/3$: Lena's list earns $+$\textyen 15{,}000, marketing's loses \textyen 32{,}500.
   \item Test the gap between segments, and count the segments you looked at.
 \end{itemize}
 
@@ -652,7 +652,7 @@ The \textbf{R-learner} minimizes the sample version, the \textbf{R-loss}, with $
 
 \medskip
 
-At the coffee chain, $\ell(\text{lapsed}) = 0.10 + 0.5 \times 0.20 = 0.20$ and $\ell(\text{active}) = 0.75 + 0.5 \times 0.05 = 0.775$. Subtracting $\ell$ removes the $0.65$ baseline gap before the effect is fitted, so the prognostic variation no longer competes with the effect.
+At Houtan Coffee, $\ell(\text{lapsed}) = 0.10 + 0.5 \times 0.20 = 0.20$ and $\ell(\text{active}) = 0.75 + 0.5 \times 0.05 = 0.775$. Subtracting $\ell$ removes the $0.65$ baseline gap before the effect is fitted, so the prognostic variation no longer competes with the effect.
 
 \medskip
 
@@ -700,7 +700,7 @@ Under a 50/50 design, the best predictor of $Y$ that imposes a constant effect, 
 
 \medskip
 
-At the coffee chain, $\tfrac14\Var(\tau(X)) = \tfrac14 \times 0.0056 = 0.0014 = 0.0375^2$.
+At Houtan Coffee, $\tfrac14\Var(\tau(X)) = \tfrac14 \times 0.0056 = 0.0014 = 0.0375^2$.
 
 \medskip
 

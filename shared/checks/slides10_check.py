@@ -1,4 +1,4 @@
-"""Arithmetic checks for meetings/m10/slides.tex (lecture case: Dana's AI assistant rollout, home-goods retail chain,
+"""Arithmetic checks for meetings/m10/slides.tex (lecture case: Dana's AI assistant rollout, Sanlin Home,
 Case C Meeting 10 parts). The slides use their own numbers, not the notes' worked example. Run: python3 slides10_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction as F

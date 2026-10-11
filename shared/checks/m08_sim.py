@@ -1,4 +1,4 @@
-# Simulated QuickBite zone-hour panel for the Meeting 8 worked example.
+# Simulated Pujiang Delivery zone-hour panel for the Meeting 8 worked example.
 import numpy as np
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.linear_model import LassoCV

@@ -1,6 +1,6 @@
-"""Arithmetic checks for meetings/m08/slides.tex (lecture case: Wen's rate decision at Meridian Hotels, Case B, M8
-releases). The slides use their own numbers, not the notes' worked example (QuickBite). Quoted case numbers are
-checked against the case files (cases/caseB-meridian) or, for the few that only the v2 deck carried, against that deck
+"""Arithmetic checks for meetings/m08/slides.tex (lecture case: Wendy's rate decision at Qiantan Hotels, Case B, M8
+releases). The slides use their own numbers, not the notes' worked example (Pujiang Delivery). Quoted case numbers are
+checked against the case files (cases/caseB-qiantan) or, for the few that only the v2 deck carried, against that deck
 at commit 5522695; everything derived from them is recomputed here. Run: python3 slides08_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction as F
@@ -20,7 +20,7 @@ def truth(label, cond):
     if not cond: FAIL.append(label)
 
 ROOT = Path(__file__).resolve().parents[2]
-CASE = ''.join((ROOT / 'cases/caseB-meridian' / f).read_text() for f in ('student.md', 'instructor.md')).replace('−', '-')
+CASE = ''.join((ROOT / 'cases/caseB-qiantan' / f).read_text() for f in ('student.md', 'instructor.md')).replace('−', '-')
 try:
     V2 = subprocess.run(['git', '-C', str(ROOT), 'show', '5522695:meetings/m08/slides.tex'],
                         capture_output=True, text=True, check=True).stdout
@@ -114,7 +114,7 @@ for mr, ml, s in [(0.04, 0.04, "0.28"), (0.02, 0.02, "0.08"), (0.01, 0.01, "0.02
 check("halving both cuts bias about four-fold (0.04 -> 0.02)", "4", bias(0.04, 0.04) / bias(0.02, 0.02), tol=0.5)
 check("halving both cuts bias about four-fold (0.02 -> 0.01)", "4", bias(0.02, 0.02) / bias(0.01, 0.01), tol=0.5)
 
-# ── The elasticity at Meridian and the decision table ──
+# ── The elasticity at Qiantan Hotels and the decision table ──
 th_hat = -1.56; sourced("DML -1.56", "-1.56")
 check("gap to break-even 0.24", "0.24", round(be, 2) - th_hat); sourced("gap 0.24", "sits 0.24 from the break-even")
 for g, rate, bk, ct in [(-0.08, "736", "13.9", "1.7"), (-0.04, "768", "6.6", "0.9"), (0.0, "800", "0.0", "0.0"),

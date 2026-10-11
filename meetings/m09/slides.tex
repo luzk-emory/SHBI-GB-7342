@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 9 lecture slides. Running case: Wen's rate decisions at Meridian Hotels (cases/caseB-meridian, Meeting 9
-% releases R1 to R7; the bonus IV parts B1 to B4 are not used). The notes' worked example (QuickBite: courier bonuses,
+% Meeting 9 lecture slides. Running case: Wendy's rate decisions at Qiantan Hotels (cases/caseB-qiantan, Meeting 9
+% releases R1 to R7; the bonus IV parts B1 to B4 are not used). The notes' worked example (Pujiang Delivery: courier bonuses,
 % restaurant reviews) is deliberately not reproduced here.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Block A follows notes Sections 1.1 to 1.5; block B follows Sections 1.6 to 1.8.
@@ -118,10 +118,10 @@
 \section{Block A: Simulators}
 % ====================================================================
 
-% [RELEASE R1: a simulator of Meridian]
+% [RELEASE R1: a simulator of Qiantan Hotels]
 \begin{frame}{Meeting 8 Left One Doubt}
 
-Wen, commercial director of Meridian Hotels (80 properties), was asked to raise midweek premium rates by 8\%, from \textyen 800 a night. An occupied room costs \textyen 200, so its contribution rises from \textyen 600 to \textyen 664.
+Wendy, commercial director of Qiantan Hotels (80 properties), was asked to raise midweek premium rates by 8\%, from \textyen 800 a night. An occupied room costs \textyen 200, so its contribution rises from \textyen 600 to \textyen 664.
 
 \[
 \text{break-even elasticity} \;=\; \frac{\ln(600/664)}{\ln 1.08} \;=\; -1.32 .
@@ -135,7 +135,7 @@ Wen, commercial director of Meridian Hotels (80 properties), was asked to raise 
 
 \medskip
 
-Two generative-AI proposals reach Wen. A \textbf{simulator} learned from Meridian's logs, to test estimators and pricing engines (Block A). A \textbf{language model} that reads guest reviews and turns text into variables (Block B). For each, the question is the course's: \emph{where does the truth come from, and how is it checked?}
+Two generative-AI proposals reach Wendy. A \textbf{simulator} learned from Qiantan Hotels' logs, to test estimators and pricing engines (Block A). A \textbf{language model} that reads guest reviews and turns text into variables (Block B). For each, the question is the course's: \emph{where does the truth come from, and how is it checked?}
 \end{frame}
 
 % ====================================================================
@@ -163,7 +163,7 @@ Each piece can be any generative model: a parametric fit, a mixture, a normalizi
 
 \medskip
 
-Meridian's data-science team fitted one to the 87{,}600 hotel-nights: given a night's 47 signals and a rate, it draws a number of premium bookings.
+Qiantan Hotels' data-science team fitted one to the 87{,}600 hotel-nights: given a night's 47 signals and a rate, it draws a number of premium bookings.
 \end{frame}
 
 % ====================================================================
@@ -175,7 +175,7 @@ If $\hat p(x) = p(x)$ and $\hat p(y \mid d, x) = p(y \mid d, x)$, the simulator'
 
 \medskip
 
-\textbf{At Meridian.} ``Bookings at a different rate'' is causal only if, in the real logs:
+\textbf{At Qiantan Hotels.} ``Bookings at a different rate'' is causal only if, in the real logs:
 \begin{itemize}
   \item the rate was as good as random given the 47 signals, measured as of pricing time (Meeting 8's assumption);
   \item every rate asked about was posted, on similar nights, somewhere in the logs (overlap).
@@ -230,8 +230,8 @@ Had category not been recorded, only Simulator 1 could be built, and every compa
 \begin{frame}{Planting the Truth}
 
 \begin{itemize}
-  \item \textbf{Planting an effect.} Keep $\hat p(x)$ and a control-outcome model; define the other outcomes from a chosen effect, often calibrated to reproduce a past randomized test. Meridian planted an elasticity of $-1.50$ on every night, so an 8\% rise multiplies a night's bookings by $1.08^{-1.50} = 0.891$.
-  \item \textbf{Planting confounding.} Add a latent $U$ that raises both the chance of treatment and the outcome, with chosen strengths, and hide it from the analyst. Meridian planted the overrides: on 8\% of nights an unrecorded local event raises demand by 12\%, and the manager raises the rate by 10\%.
+  \item \textbf{Planting an effect.} Keep $\hat p(x)$ and a control-outcome model; define the other outcomes from a chosen effect, often calibrated to reproduce a past randomized test. The team planted an elasticity of $-1.50$ on every night, so an 8\% rise multiplies a night's bookings by $1.08^{-1.50} = 0.891$.
+  \item \textbf{Planting confounding.} Add a latent $U$ that raises both the chance of treatment and the outcome, with chosen strengths, and hide it from the analyst. The team planted the overrides: on 8\% of nights an unrecorded local event raises demand by 12\%, and the manager raises the rate by 10\%.
 \end{itemize}
 
 \begin{center}
@@ -245,7 +245,7 @@ the 47 signals' joint distribution; the shape of demand across nights; how the R
 \end{tabular}
 \end{center}
 
-So the simulator cannot tell Wen the true elasticity of Meridian's guests: the one inside it was planted. It can test whether a method recovers a known truth on data shaped like Meridian's.
+So the simulator cannot tell Wendy her guests' true elasticity: the one inside it was planted. It can test whether a method recovers a known truth on data shaped like hers.
 \end{frame}
 
 % ====================================================================
@@ -326,7 +326,7 @@ Businesses deploy \textbf{pipelines} (a model feeding an optimizer feeding a dec
 \end{tikzpicture}
 \end{center}
 
-\small The pipeline never sees the truth; only the evaluation does. At Meridian, the policy is a rate for every hotel-night, its value is contribution, $(\text{rate} - 200) \times \text{bookings}$, and the oracle posts the rate that maximizes the planted contribution.
+\small The pipeline never sees the truth; only the evaluation does. At Qiantan Hotels, the policy is a rate for every hotel-night, its value is contribution, $(\text{rate} - 200) \times \text{bookings}$, and the oracle posts the rate that maximizes the planted contribution.
 \end{frame}
 
 % ====================================================================
@@ -461,7 +461,7 @@ A pipeline whose models share the simulator's model class tends to look good bec
 \begin{center}
 \begin{tikzpicture}[>={Stealth[length=2mm]}, every node/.style={font=\small},
     box/.style={draw, rounded corners=1pt, minimum height=0.7cm, align=center, text width=3.3cm}]
-  \node[box, draw=noteblue, fill=bluetint, text width=2.4cm] (logs) at (0,0) {Meridian's logs};
+  \node[box, draw=noteblue, fill=bluetint, text width=2.4cm] (logs) at (0,0) {Qiantan Hotels' logs};
   \node[box, draw=sbgreen, fill=greentint, text width=3.4cm] (bs) at (5.6,0.6) {Boosted simulator:\\vendor's regret \textyen 380};
   \node[box, draw=warnred, fill=redtint, text width=3.4cm] (ns) at (5.6,-0.6) {Neural simulator:\\vendor's regret \textyen 2{,}240};
   \node[box, draw=extgrey, fill=boxgrey, text width=3.4cm] (vd) at (11.2,0.6) {Vendor's model:\\boosted trees};
@@ -479,7 +479,7 @@ A pipeline whose models share the simulator's model class tends to look good bec
 \end{frame}
 
 % ====================================================================
-\begin{frame}{What the Testbeds Tell Wen}
+\begin{frame}{What the Testbeds Tell Wendy}
 
 \begin{center}
 \small
@@ -487,7 +487,7 @@ A pipeline whose models share the simulator's model class tends to look good bec
 \toprule
 \textbf{Testbed} & \textbf{Finding} \\
 \midrule
-Estimator & DML with boosted trees recovers a planted $-1.50$ on Meridian's data shape. Overrides like the planted ones would bias it toward zero by 0.13, so $-1.56$ errs on the side of a rise. \\[0.3em]
+Estimator & DML with boosted trees recovers a planted $-1.50$ on Qiantan Hotels' data shape. Overrides like the planted ones would bias it toward zero by 0.13, so $-1.56$ errs on the side of a rise. \\[0.3em]
 Pipeline & DML pricing has the smallest worst-case regret (\textyen 760) and prices above \textyen 1{,}920 on 3\% of nights, against the vendor's 14\%. The vendor's win is home advantage, partly on thinly logged rates. \\[0.3em]
 Backtest & Both simulators pass near current rates; neither is tested where the pipelines differ most. \\
 \bottomrule
@@ -500,14 +500,14 @@ Backtest & Both simulators pass near current rates; neither is tested where the 
 
 \medskip
 
-Every number in this table rests on a truth the team planted. The simulator ranks methods; it does not measure Meridian's guests.
+Every number in this table rests on a truth the team planted. The simulator ranks methods; it does not measure Qiantan Hotels' guests.
 \end{frame}
 
 % ====================================================================
 % [RELEASE R4: synthetic guests]
 \begin{frame}{Synthetic Guests}
 
-A second vendor offers \textbf{synthetic guests}. A language model plays 10{,}000 guests; each is shown a Meridian hotel at \textyen 800 and at \textyen 864 and asked whether they would book.
+A second vendor offers \textbf{synthetic guests}. A language model plays 10{,}000 guests; each is shown a Qiantan hotel at \textyen 800 and at \textyen 864 and asked whether they would book.
 
 \begin{center}
 \begin{tabular}{lr}
@@ -527,7 +527,7 @@ The vendor's report: \emph{``Demand is inelastic. Raise rates.''} At $-0.9$ the 
 
 \bigskip
 
-In the simulator, the team planted the truth on top of Meridian's own logs. Here nobody planted it: the elasticity is \textbf{whatever the model asserts}.
+In the simulator, the team planted the truth on top of Qiantan Hotels' own logs. Here nobody planted it: the elasticity is \textbf{whatever the model asserts}.
 \end{frame}
 
 % ====================================================================
@@ -540,7 +540,7 @@ In the simulator, the team planted the truth on top of Meridian's own logs. Here
 & \textbf{Learned simulator} & \textbf{Silicon sample} \\
 \midrule
 Truth & \textbf{planted} by the analyst & \textbf{asserted} by the model's priors \\
-Realism from & Meridian's own logs & text about guests in general, perhaps the very studies replicated \\
+Realism from & Qiantan Hotels' own logs & text about guests in general, perhaps the very studies replicated \\
 Can test an estimator? & yes: the truth is known & no: the truth is unknown \\
 \bottomrule
 \end{tabular}
@@ -585,7 +585,7 @@ The $-0.9$ is a hypothesis. What settles it is a design: a randomized rate test.
 % [RELEASE R5: the Q3 rate test and the review labels]
 \begin{frame}{The Q3 Rate Test}
 
-Wen did not take the rise on trust. In Q3, at 40 hotels, \textbf{a coin chose each hotel-week's midweek premium rate}: the current one or 8\% higher.
+Wendy did not take the rise on trust. In Q3, at 40 hotels, \textbf{a coin chose each hotel-week's midweek premium rate}: the current one or 8\% higher.
 
 \begin{itemize}
   \item Bookings, the main outcome: on higher-rate weeks, midweek premium bookings were 12.4\% lower (SE 1.2\%).
@@ -627,7 +627,7 @@ False-positive rate $\alpha = \Pr(f = 1 \mid Y = 0)$; \quad false-negative rate 
 
 \medskip
 
-At Meridian, $Y = 1$ if a trained reader says a review complains about price or value, and $f = 1$ if the model says so. The model's share $\E[f]$ is not the complaint rate $\E[Y]$, and the gap between arms of $\E[f]$ need not be the effect on $\E[Y]$.
+At Qiantan Hotels, $Y = 1$ if a trained reader says a review complains about price or value, and $f = 1$ if the model says so. The model's share $\E[f]$ is not the complaint rate $\E[Y]$, and the gap between arms of $\E[f]$ need not be the effect on $\E[Y]$.
 \end{frame}
 
 % ====================================================================
@@ -761,7 +761,7 @@ In every role, accuracy must be \textbf{measured} against gold labels, separatel
 
 \medskip
 
-A validation on pre-treatment text says nothing about the reviews the treatment produced: at Meridian, the false-positive rate tripled only in the higher-rate arm.
+A validation on pre-treatment text says nothing about the reviews the treatment produced: at Qiantan Hotels, the false-positive rate tripled only in the higher-rate arm.
 \end{frame}
 
 % ====================================================================
@@ -945,7 +945,7 @@ Each has a number today:
 
 % ====================================================================
 % [RELEASE R7: the memo]
-\begin{frame}{What Wen Decides}
+\begin{frame}{What Wendy Decides}
 
 \textbf{The rise.} The Q3 coin gives bookings $-12.4\%$ (SE 1.2\%) for an 8\% rise:
 \[

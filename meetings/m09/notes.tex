@@ -204,7 +204,7 @@ language-model label on pre-treatment text only; gold labels from one arm; embed
 
 \subsection*{Part A: choosing a courier-bonus pipeline on two simulators}
 
-\paragraph{Setting.} QuickBite pays bonuses to couriers for working evening peaks, to the top 30\% under a budget. Each extra peak hour is worth
+\paragraph{Setting.} Pujiang Delivery pays bonuses to couriers for working evening peaks, to the top 30\% under a budget. Each extra peak hour is worth
 ¥30 and a bonus costs ¥60, so the net value of paying courier $x$ is $v(x) = 30\,\tau(x) - 60$. Two simulators were fitted to last year's
 randomized bonus test (6{,}000 couriers), one from neural networks and one from boosted trees, each giving its own planted $\mu_0(x)$ and $\tau(x)$.
 Each generates synthetic logs of 4{,}000 couriers in which past bonuses were targeted on courier features, with and without a planted hidden
@@ -241,7 +241,7 @@ Boosted & moderate & 23{,}464 & 17{,}083 & 2{,}383 & 1{,}668 \\
 
 \subsection*{Part B: a model-coded outcome with a gold subsample}
 
-\paragraph{Setting.} QuickBite randomized a ``Verified Kitchen'' badge across 20{,}000 restaurants (10{,}000 per arm). The outcome is whether a
+\paragraph{Setting.} Pujiang Delivery randomized a ``Verified Kitchen'' badge across 20{,}000 restaurants (10{,}000 per arm). The outcome is whether a
 restaurant's next review mentions a food-quality problem, coded by a language model. Humans labeled 1{,}000 random reviews in each arm.
 
 \paragraph{Step 1: model labels only.} The model flags 8.0\% of treated and 10.0\% of control reviews: an effect of $-0.020$ (SE $0.004$,
@@ -265,11 +265,11 @@ difference is $(1 - 0.01 - 0.20)(0.10) - (1 - 0.02 - 0.20)(0.10) + (0.01 - 0.02)
 $0.009$ created entirely by the model's different false-positive rates.}
 
 \begin{exercise}[judgment]
-A consultant estimates QuickBite's price elasticity for a new dessert line by asking a language model to role-play 2{,}000 customer personas
+A consultant estimates Pujiang Delivery's price elasticity for a new dessert line by asking a language model to role-play 2{,}000 customer personas
 at three prices, and reports $-1.8$ with a tight interval. What would you ask before using the number, and what could the personas legitimately
 be used for?
 \end{exercise}
-\answer{Ask: has the persona method reproduced, out of sample, elasticities from QuickBite's own price tests in similar categories? Is the
+\answer{Ask: has the persona method reproduced, out of sample, elasticities from Pujiang Delivery's own price tests in similar categories? Is the
 interval's tightness just the model's low variance? Does the estimate move with prompt wording? Is $-1.8$ a textbook value the model recalls?
 Without validation it is an asserted, not a measured, truth. Legitimate uses: drafting the menu test's design, choosing price points, setting a
 prior for the power calculation of a real price test.}

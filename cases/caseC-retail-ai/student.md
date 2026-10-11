@@ -1,6 +1,6 @@
 # Case C: Dana's AI assistant rollout
 
-**A home-goods retail chain, Meetings 10–11.** Fictional teaching case: the company, the vendor, the people, and all data are invented.
+**A Sanlin Home, Meetings 10–11.** Fictional teaching case: the company, the vendor, the people, and all data are invented.
 
 This case is handed out one part at a time. When a task says *commit*, write your answer down before the class discusses it.
 
@@ -14,7 +14,7 @@ All sales figures are **mean weekly sales per store, in ¥000**, unless marked o
 
 ### Part M10-R1. The assistant
 
-**Dana** runs store operations for a home-goods chain of **120 stores**.
+**Dana** runs store operations at Sanlin Home, a home-goods chain of **120 stores**.
 
 Last year the chain licensed **Store Assistant**, a generative-AI assistant that runs on associates' handhelds. An associate asks it a question in plain words: *"Do we have the 30 cm frying pan in stock?"*, *"What screws go with this bracket?"*, *"Is the gray sofa cover machine-washable?"* The assistant answers in seconds. It checks the back room and the three nearest stores, and it suggests add-on items for the basket.
 

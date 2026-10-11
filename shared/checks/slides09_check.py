@@ -1,5 +1,5 @@
-"""Arithmetic checks for meetings/m09/slides.tex (lecture case: Wen's rate decisions at Meridian Hotels, Case B,
-Meeting 9 releases R1 to R7). The slides use the case's numbers, not the notes' worked example (QuickBite).
+"""Arithmetic checks for meetings/m09/slides.tex (lecture case: Wendy's rate decisions at Qiantan Hotels, Case B,
+Meeting 9 releases R1 to R7). The slides use the case's numbers, not the notes' worked example (Pujiang Delivery).
 Simulation outputs (testbed means and coverage, regrets, backtest reproductions, embedding-DML estimates) are the
 case's inputs, checked in case_check.py; here every quantity derived from them, and every exact example, is recomputed.
 Run: python3 slides09_check.py"""
@@ -164,7 +164,7 @@ check("SE factor 9% -> 6%: 1.22", "1.22", sqrt(9 / 6)); check("SE factor 9% -> 1
 check("SE at 6%: 0.03 x 1.22", "0.04", 0.03 * 1.22); check("SE at 1%: 0.03 x 3", "0.09", 0.03 * 3)
 check("SE at 6% unrounded factor", "0.04", 0.03 * sqrt(9 / 6))
 
-# ── What Wen decides: the Q3 elasticity ──
+# ── What Wendy decides: the Q3 elasticity ──
 el = lambda x: log(1 + x) / log(1.08)
 check("Q3 elasticity -1.72", "-1.72", el(-0.124))
 check("Q3 CI lower -2.07", "-2.07", el(-0.124 - 1.96 * 0.012)); check("Q3 CI upper -1.38", "-1.38", el(-0.124 + 1.96 * 0.012))

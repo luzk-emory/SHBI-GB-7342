@@ -1,4 +1,4 @@
-"""Arithmetic checks for meetings/m06/slides.tex (lecture case: Lin's coupon programme, coffee chain, the Q4 push in
+"""Arithmetic checks for meetings/m06/slides.tex (lecture case: Lena's coupon programme, Houtan Coffee, the Q4 push in
 Region 2, M6 releases). The slides use their own numbers, not the notes' worked example. Run: python3 slides06_check.py"""
 from decimal import Decimal, ROUND_HALF_UP
 from fractions import Fraction as F

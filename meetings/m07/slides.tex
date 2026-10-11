@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 7 lecture slides. Running case: Lin's coupon program at a coffee chain (cases/caseA-coffee-chain,
-% Meeting 7 releases R1 to R4b): the review of the Q3 program from its logs. The notes' worked example (FitLife) is
+% Meeting 7 lecture slides. Running case: Lena's coupon program at Houtan Coffee (cases/caseA-coffee-chain,
+% Meeting 7 releases R1 to R4b): the review of the Q3 program from its logs. The notes' worked example (Yangsi Fitness) is
 % deliberately not reproduced here.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Block A follows notes Sections 1.1 to 1.6; block B follows Sections 1.7 to 1.11.
@@ -122,7 +122,7 @@
 \section{Block A: Identification and adjustment}
 % ====================================================================
 
-% [RELEASE R1: the Q3 program, sales' table and Lin's four sentences]
+% [RELEASE R1: the Q3 program, sales' table and Lena's four sentences]
 \begin{frame}{The Program on Trial}
 
 In Q3 the chain's automated campaign engine from Meeting 5 sent 5{,}000 \textyen 10 coupons, to half of the 10{,}000-member base. It chose members by a score built from recency, tier, and spend, throttled by a daily contact cap.
@@ -292,13 +292,13 @@ Randomization (Meetings 1 to 6) delivered the first two by design. Today they mu
 % ====================================================================
 \begin{frame}{The Assumptions, Sentence by Sentence}
 
-From Lin's description of the Q3 program:
+From Lena's description of the Q3 program:
 
 \begin{center}
 \small
 \begin{tabular}{p{6.4cm}p{6.6cm}}
 \toprule
-\textbf{Lin's description says} & \textbf{Which buys} \\
+\textbf{Lena's description says} & \textbf{Which buys} \\
 \midrule
 ``Coupons were assigned by the scoring rule and by nothing else.'' & Exchangeability: nobody hand-picked recipients on something unrecorded. \\[0.4em]
 ``Every field the rule read is in the export.'' & Exchangeability: $X$ contains the rule's inputs. \\[0.4em]
@@ -628,7 +628,7 @@ The assignment mechanism, from the coupon column alone: $\hat e(\text{band}) = $
 
 The band is a \textbf{saturated} propensity model: no functional form to get wrong. With 14 raw fields, $e$ is estimated from the rule's inputs, or written down if the rule is known.
 
-Lin's third sentence holds, barely: some members of every band went without a coupon. But in band 4, 98\% got one.
+Lena's third sentence holds, barely: some members of every band went without a coupon. But in band 4, 98\% got one.
 \end{frame}
 
 % ====================================================================
@@ -694,7 +694,7 @@ Their effect is not estimated away; it is reported separately, with the 50 membe
 % ====================================================================
 \begin{frame}{Design Before Analysis}
 
-Every choice so far was made without a purchase in sight, and should be (Rubin 2008). Lin's design record:
+Every choice so far was made without a purchase in sight, and should be (Rubin 2008). Lena's design record:
 
 \begin{enumerate}
   \item \textbf{Assignment mechanism:} $\hat e$ by band, from the coupon column.
@@ -773,7 +773,7 @@ Band 4 & 2{,}450 & 0.20 & 0.30 & 0.100 & \textcolor{sbgreen}{$+$\textyen 3.00} \
   \item The untrimmed ATT's interval, $0.17 \pm 1.96 \times 0.022$, starts at $0.127$, below $0.133$.
 \end{itemize}
 
-\textbf{Lin's memo:} keep coupons for lapsed members (bands 3 and 4); stop the 1{,}000 to active members, who lose \textyen 6.50 each.
+\textbf{Lena's memo:} keep coupons for lapsed members (bands 3 and 4); stop the 1{,}000 to active members, who lose \textyen 6.50 each.
 \end{frame}
 
 % ====================================================================
@@ -886,7 +886,7 @@ LaLonde (1986) took a job-training experiment, replaced its randomized control g
 
 \medskip
 
-At the coffee chain, the Q3 review stands on two facts: the export holds every field the score read, past purchases among them, and within a band the cap, not the members, decided who got a coupon. The choice among IPW, standardization, and AIPW matters less.
+At Houtan Coffee, the Q3 review stands on two facts: the export holds every field the score read, past purchases among them, and within a band the cap, not the members, decided who got a coupon. The choice among IPW, standardization, and AIPW matters less.
 \end{frame}
 
 % ====================================================================
@@ -911,7 +911,7 @@ Use the strongest measured confounder as the yardstick. Segment shifts $\mu_0$ b
 
 \medskip
 
-A hidden confounder a tenth as strong as segment overturns ``keep as run''; stopping the active coupons survives one over half as strong. None needs a confounder stronger than segment, so the conclusions rest on Lin's first sentence. A formal omitted-variable sensitivity analysis, later in the course, makes this precise.
+A hidden confounder a tenth as strong as segment overturns ``keep as run''; stopping the active coupons survives one over half as strong. None needs a confounder stronger than segment, so the conclusions rest on Lena's first sentence. A formal omitted-variable sensitivity analysis, later in the course, makes this precise.
 \end{frame}
 
 % ====================================================================

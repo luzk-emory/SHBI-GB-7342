@@ -1,5 +1,5 @@
 # Figure data for Meeting 8: random 300 residual pairs and 20 binned means (full sample).
-# Simulated QuickBite zone-hour panel for the Meeting 8 worked example.
+# Simulated Pujiang Delivery zone-hour panel for the Meeting 8 worked example.
 import numpy as np
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.linear_model import LassoCV

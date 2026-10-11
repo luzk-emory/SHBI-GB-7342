@@ -1,8 +1,8 @@
 % \documentclass[aspectratio=169, 11pt]{beamer}
 \documentclass[aspectratio=169, 11pt, handout]{beamer}
 
-% Meeting 1 lecture slides. Running case: Lin's coupon program at a coffee chain (cases/caseA-coffee-chain,
-% releases R1 to R5). The notes' worked example (FitLife) is deliberately not reproduced here.
+% Meeting 1 lecture slides. Running case: Lena's coupon program at Houtan Coffee (cases/caseA-coffee-chain,
+% releases R1 to R5). The notes' worked example (Yangsi Fitness) is deliberately not reproduced here.
 % Shared with notes.tex: estimands, assumptions, notation, the statement of each Result, the order of topics.
 % Block A follows notes Sections 1.1 to 1.3; block B follows Sections 1.4 to 1.6.
 % Every number is checked by shared/checks/slides01_check.py.
@@ -168,7 +168,7 @@ Regression, machine learning, AI tools: all of them live in step~3. They compute
 % [RELEASE R1: narrative and marketing's pilot numbers]
 \begin{frame}{The Coffee Chain, Before the Experiment}
 
-Lin runs customer analytics for a coffee chain with 10{,}000 loyalty members.
+Lena runs customer analytics at Houtan Coffee, a coffee chain with 10{,}000 loyalty members.
 
 \bigskip
 
@@ -247,7 +247,7 @@ An estimand is a summary of potential outcomes for a named population. It specif
 \small
 \begin{tabular}{lll}
 \toprule
-\textbf{Estimand} & \textbf{Definition} & \textbf{Lin's question} \\
+\textbf{Estimand} & \textbf{Definition} & \textbf{Lena's question} \\
 \midrule
 $\ATE$ & $\E[Y(1) - Y(0)]$ & coupon to everyone? \\
 $\ATT$ & $\E[Y(1) - Y(0) \mid D = 1]$ & keep sending it to those who get it now? \\
@@ -348,7 +348,7 @@ The expected net value per unit treated, relative to not treating, is
 and treating pays if and only if $\tau > \tau^\ast = c\,p_1/m$.
 \end{result}
 
-Here $p_1 = \E[Y(1)]$, $p_0 = \E[Y(0)]$. For Lin's coupon, $\tau^\ast = 10\,p_1/30 = p_1/3$.
+Here $p_1 = \E[Y(1)]$, $p_0 = \E[Y(0)]$. For Lena's coupon, $\tau^\ast = 10\,p_1/30 = p_1/3$.
 
 \medskip
 
@@ -548,7 +548,7 @@ Selection on gains & $0.5 \times (0.12 - 0.08) = 0.02$ & picked slightly better 
 % [RELEASE R3: two targeting policies; pairs compute both before the reveal]
 \begin{frame}{Two Kinds of Customer}
 
-Lin's customer database splits the whole base into two segments of 5{,}000. Take the segment effects as given for now; estimating effects like these from data comes later in the course.
+Lena's customer database splits the whole base into two segments of 5{,}000. Take the segment effects as given for now; estimating effects like these from data comes later in the course.
 
 \bigskip
 
@@ -637,7 +637,7 @@ Independence is a property of the procedure, not the customers. A random number 
 % [RELEASE R4: the Q2 randomized test in the pilot region]
 \begin{frame}{The Q2 Test: A Coin in the Pilot Region}
 
-In Q2, Lin draws 500 of the same 1{,}000 members at random for the coupon. If the draw split every type exactly in half:
+In Q2, Lena draws 500 of the same 1{,}000 members at random for the coupon. If the draw split every type exactly in half:
 
 \begin{center}
 \small
@@ -665,7 +665,7 @@ Do-not-disturb (1,0) & 50 & 50 & 100 \\
 % ====================================================================
 \begin{frame}{What Must Be True}
 
-From Lin's log of the Q2 test:
+From Lena's log of the Q2 test:
 
 \bigskip
 

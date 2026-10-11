@@ -5,6 +5,12 @@ Newest first. Each entry describes the repository as of its date and is not revi
 H4 (interference) is H1, H5 (sequential decisions) is H3, and H6 (neural estimators) is H2. Entries before 9 October
 number the labs from 0 (old Lab N is now Lab N+1).
 
+## One build script (2026-10-11)
+
+- `shared/build.sh` replaces `build.sh`, `build_all.sh` and `cloud-setup.sh`. It runs from anywhere in the repository with targets `all` (default), `mNN`, `mNN/<document>`, `syllabus`, `notation` and `setup`; uses tectonic when installed and pdflatex otherwise (`ENGINE=` to choose); builds the answer key automatically for any document with `\answer` (the `nokey` option is gone); syncs the style copy into each meeting it builds; and prints one line per document with its errors, undefined references and overfull boxes. Tested with pdflatex and with tectonic 0.15 on a local TeX Live bundle: all 47 documents build.
+- M5 notes: the PAV exercise's number lists now wrap, which removed a 120pt overflow under tectonic.
+- README, AGENTS, the editorial guide and the style file's comment describe the new commands.
+
 ## Names and data plan (2026-10-10)
 
 - Names (instructor's decision): businesses named after places near the Qiantan campus, people with English names. Case A's unnamed coffee chain is Houtan Coffee and Lin is Lena; Case B's Meridian Hotels is Qiantan Hotels and Wen is Wendy (folder `cases/caseB-meridian` renamed `cases/caseB-qiantan`); Case C's unnamed home-goods chain is Sanlin Home, and Dana stays. The notes' FitLife is Yangsi Fitness and QuickBite is Pujiang Delivery (QuickBite Plus is Pujiang Plus). Applied to slides, notes, handouts, cases, the syllabus, check scripts, and the README; citations (Lin 2013, Zheng Wen) unchanged. Two M9 sentences shortened to keep a frame on its page.

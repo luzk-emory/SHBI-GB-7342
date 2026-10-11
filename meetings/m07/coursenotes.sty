@@ -46,7 +46,7 @@
 \newcommand{\ATU}{\text{ATU}}
 
 % ---- Answer-key toggle -----------------------------------------------------------------------
-% Compile the key with:  pdflatex -jobname notesXX-key "\def\KEY{}\input{notesXX}"
+% shared/build.sh builds the key (<name>-key.pdf) for any document with \answer, by defining \KEY first.
 \newif\ifkey
 \ifdefined\KEY \keytrue \else \keyfalse \fi
 \newcounter{exercise}

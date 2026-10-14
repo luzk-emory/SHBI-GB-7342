@@ -1,9 +1,9 @@
 #!/bin/bash
 # Build the course documents. Run from anywhere in the repository:
-#   bash shared/build.sh                  everything: notation sheet, syllabus, every meeting, then the combined PDFs in pdf/
+#   bash shared/build.sh                  everything: notation sheet, cheatsheet, syllabus, every meeting, combined PDFs in pdf/
 #   bash shared/build.sh m03              every document of one meeting (notes, handouts, slides)
 #   bash shared/build.sh m03/notes        one document (also m03/slides, m03/handout-H2-neural-estimators)
-#   bash shared/build.sh syllabus         the syllabus (also: notation)
+#   bash shared/build.sh syllabus         the syllabus (also: notation, cheatsheet)
 #   bash shared/build.sh setup            install TeX Live, poppler and the Python packages (fresh Linux environment)
 # Engine: tectonic if it is installed, otherwise pdflatex. Override with ENGINE=pdflatex or ENGINE=tectonic.
 # Documents that contain \answer (notes and handouts) also build an answer key, <name>-key.pdf.
@@ -65,6 +65,7 @@ meeting() {
 
 all() {
   doc "$ROOT/shared" notation
+  doc "$ROOT/shared" cheatsheet
   doc "$ROOT/syllabus" syllabus
   for d in "$ROOT"/meetings/m*/; do meeting "$(basename "$d")"; done
   if command -v pdfunite >/dev/null; then
@@ -76,7 +77,7 @@ all() {
     done
     mkdir -p "$ROOT/pdf"
     pdfunite "${all[@]}" "$ROOT/pdf/notes-all.pdf" && pdfunite "${keys[@]}" "$ROOT/pdf/notes-keys.pdf" \
-      && cp "$ROOT/shared/build/notation.pdf" "$ROOT/pdf/notation.pdf" && echo "combined PDFs in pdf/"
+      && cp "$ROOT/shared/build/notation.pdf" "$ROOT/shared/build/cheatsheet.pdf" "$ROOT/pdf/" && echo "combined PDFs in pdf/"
   else
     echo "pdfunite not found: skipped the combined PDFs in pdf/"
   fi
@@ -88,6 +89,7 @@ case "${1:-all}" in
   setup) setup ;;
   syllabus) doc "$ROOT/syllabus" syllabus ;;
   notation) doc "$ROOT/shared" notation ;;
+  cheatsheet) doc "$ROOT/shared" cheatsheet ;;
   m[0-9][0-9]) meeting "$1" ;;
   m[0-9][0-9]/*) f=${1#*/}; meeting "${1%%/*}" "${f%.tex}" ;;
   *) sed -n '2,11p' "$0"; exit 1 ;;

@@ -5,6 +5,10 @@ Newest first. Each entry describes the repository as of its date and is not revi
 H4 (interference) is H1, H5 (sequential decisions) is H3, and H6 (neural estimators) is H2. Entries before 9 October
 number the labs from 0 (old Lab N is now Lab N+1).
 
+## Cheatsheet (2026-10-14)
+
+- New `shared/cheatsheet.tex`: a six-page landscape cheatsheet in two columns (term entries, boxed key formulas, comparison tables, small diagrams, remarks), modeled on the instructor's example. One section per meeting, Meetings 1 to 11, plus a short "Further designs (not examined)" section for the handout topics. Result statements follow the notes; the meeting table on page 1 is the syllabus's "where the counterfactual comes from" table. Built by `bash shared/build.sh cheatsheet` and included in the full build; copied to `pdf/` with the notation sheet.
+
 ## One build script (2026-10-11)
 
 - `shared/build.sh` replaces `build.sh`, `build_all.sh` and `cloud-setup.sh`. It runs from anywhere in the repository with targets `all` (default), `mNN`, `mNN/<document>`, `syllabus`, `notation` and `setup`; uses tectonic when installed and pdflatex otherwise (`ENGINE=` to choose); builds the answer key automatically for any document with `\answer` (the `nokey` option is gone); syncs the style copy into each meeting it builds; and prints one line per document with its errors, undefined references and overfull boxes. Tested with pdflatex and with tectonic 0.15 on a local TeX Live bundle: all 47 documents build.

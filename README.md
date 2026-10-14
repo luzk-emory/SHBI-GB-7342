@@ -14,7 +14,7 @@ lists every decision waiting on the instructor.
 ```
 meetings/m01 ... m11/   notes.tex (technical notes), slides.tex (lecture slides), handout-*.tex,
                         coursenotes.sty (a synced copy, so each folder compiles on its own), figure files
-shared/                 coursenotes.sty (master copy), notation.tex, build.sh, build_all.sh, cloud-setup.sh,
+shared/                 coursenotes.sty (master copy), notation.tex, build.sh (builds everything; see below),
                         checks/ (number checks, run_all.sh, editorial_scan.py)
 syllabus/               syllabus.tex (follows plan/schedule.xlsx)
 cases/                  lecture cases A to C, student and instructor versions
@@ -80,11 +80,19 @@ data are fictional; the names come from places near the Qiantan campus.
 
 ## How to build
 
-From a meeting folder, `bash ../../shared/build.sh notes` writes `build/notes.pdf` and `build/notes-key.pdf`; handouts
-build the same way (`bash ../../shared/build.sh handout-H1-interference`), and slides with
-`bash ../../shared/build.sh slides nokey`. From the repository root, `bash shared/build_all.sh` syncs the style copies,
-rebuilds every document and key, and writes the combined PDFs to `pdf/`. Edit the style only in `shared/coursenotes.sty`.
-`shared/cloud-setup.sh` installs LaTeX and the Python packages (`requirements.txt`) in a fresh environment.
+One script, `shared/build.sh`, run from anywhere in the repository:
+
+- `bash shared/build.sh` builds everything (notation sheet, syllabus, every meeting) and writes the combined PDFs to
+  `pdf/`;
+- `bash shared/build.sh m03` builds one meeting; `m03/notes`, `m03/slides` or `m03/handout-H2-neural-estimators` one
+  document; `syllabus` and `notation` the others;
+- `bash shared/build.sh setup` installs TeX Live, poppler and the Python packages in a fresh Linux environment.
+
+It uses tectonic when it is installed and pdflatex otherwise (`ENGINE=pdflatex` or `ENGINE=tectonic` to choose).
+Documents with answers (notes, handouts) also get their key, `build/<name>-key.pdf`. Output goes to a `build/` folder
+next to each source, and each document prints one line: `ok`, or its errors, undefined references and overfull boxes.
+Building a meeting copies `shared/coursenotes.sty` into its folder, so a document still compiles on its own in an
+editor; edit the style only in `shared/coursenotes.sty`.
 
 ## How to check
 

@@ -10,7 +10,7 @@ what is current, how to build, and what is open.
   without being asked.
 - Don't create new top-level folders or scratch files in the repository. Put scratch work outside it, or in a
   `build/` folder, which git ignores.
-- Edit the style only in `shared/coursenotes.sty`. `shared/build_all.sh` copies it into each meeting folder.
+- Edit the style only in `shared/coursenotes.sty`. `shared/build.sh` copies it into each meeting folder it builds.
 
 ## Git
 - Before starting, run `git status`. If there are uncommitted changes you did not make, stop and ask.
@@ -22,8 +22,9 @@ what is current, how to build, and what is open.
 ## Content
 - Every number in the notes, handouts, slides and rewritten case parts is checked by `shared/checks/`. After changing
   a number, update the matching `*_check.py`, then run `bash shared/checks/run_all.sh`. Commit only when it passes.
-- Rebuild what you changed (in a meeting folder: `bash ../../shared/build.sh notes`, `... handout-HN-topic`, or
-  `... slides nokey`) and confirm there are no LaTeX errors, undefined references or overfull boxes.
+- Rebuild what you changed (`bash shared/build.sh mNN` or `mNN/notes`, `mNN/slides`, `syllabus`) and confirm every
+  document prints `ok` with no overfull boxes. The script picks tectonic or pdflatex; the instructor builds with
+  tectonic, so a change should pass both when both are available.
 - Decisions that belong to the instructor (content choices, data sources, policies, anything marked `\tbd`) are not
   yours to make: log them in `plan/FLAGS.md` and ask.
 - Record substantive content changes in `plan/CHANGELOG.md`. Keep `README.md` (status and "Open items") and

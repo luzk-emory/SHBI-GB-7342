@@ -88,6 +88,8 @@ One script, `shared/build.sh`, run from anywhere in the repository:
   `pdf/`;
 - `bash shared/build.sh m03` builds one meeting; `m03/notes`, `m03/slides` or `m03/handout-H2-neural-estimators` one
   document; `syllabus`, `notation` and `cheatsheet` the others;
+- `bash shared/build.sh clean` removes the LaTeX by-products (`.aux`, `.log`, `.synctex.gz` and so on) from every source and
+  `build/` folder; PDFs stay. The full build does this at the end, keeping only the files of documents with problems;
 - `bash shared/build.sh setup` installs TeX Live, poppler and the Python packages in a fresh Linux environment.
 
 It uses tectonic when it is installed and pdflatex otherwise (`ENGINE=pdflatex` or `ENGINE=tectonic` to choose).

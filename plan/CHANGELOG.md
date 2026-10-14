@@ -5,6 +5,11 @@ Newest first. Each entry describes the repository as of its date and is not revi
 H4 (interference) is H1, H5 (sequential decisions) is H3, and H6 (neural estimators) is H2. Entries before 9 October
 number the labs from 0 (old Lab N is now Lab N+1).
 
+## Build clean-up (2026-10-14)
+
+- `shared/build.sh clean` removes LaTeX by-products (`.aux`, `.log`, `.out`, `.toc`, `.nav`, `.snm`, `.vrb`, `.fls`, `.fdb_latexmk`, `.synctex.gz`, `.console` and similar, plus the tectonic key wrappers) from every source folder and its `build/` folder, including files left by compiling in an editor. PDFs, sources and data are never touched. The full build ends with this clean but keeps the files of any document that failed or has overfull boxes, so its log can be read. When a document fails, the full build now skips the combined PDFs with a message instead of a `pdfunite` error.
+- `schedule.xlsx`: the Schedule tab's Lab 8 cell said "DML on scanner data"; it now says Airbnb listings, as the data plan decided.
+
 ## Cheatsheet (2026-10-14)
 
 - New `shared/cheatsheet.tex`: a six-page landscape cheatsheet in two columns (term entries, boxed key formulas, comparison tables, small diagrams, remarks), modeled on the instructor's example. One section per meeting, Meetings 1 to 11, plus a short "Further designs (not examined)" section for the handout topics. Result statements follow the notes; the meeting table on page 1 is the syllabus's "where the counterfactual comes from" table. Built by `bash shared/build.sh cheatsheet` and included in the full build; copied to `pdf/` with the notation sheet.

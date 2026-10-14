@@ -89,9 +89,9 @@ question throughout: where does the counterfactual, what would have happened wit
 \toprule
 \textbf{Meetings} & \textbf{The comparison comes from} & \textbf{What may be unobserved} \\
 \midrule
-1--6 & a randomized control group & anything \\
-7--8 & units that look alike on measured variables & nothing relevant \\
-9 & a simulator learned from logs, with the effect planted & nothing relevant (the 7--8 assumption, made explicit) \\
+1--5 & a randomized control group & anything \\
+6--8 & units that look alike on measured variables & nothing relevant \\
+9 & a simulator learned from logs, with the effect planted & nothing relevant (the 6--8 assumption, made explicit) \\
 10--11 & untreated units observed over time & time-stable confounders \\
 \bottomrule
 \end{tabular}
@@ -270,8 +270,10 @@ TARNet & shared representation $\Phi(x)$, one head per arm & between S and T; ca
 
 \term{Doubly robust pseudo-outcome} With $\hat\mu_d$ and $\hat e$ fitted on other data,
 \keybox{\phi = \hat\mu_1(X) - \hat\mu_0(X) + \frac{D\,(Y - \hat\mu_1(X))}{\hat e(X)} - \frac{(1-D)(Y - \hat\mu_0(X))}{1 - \hat e(X)}}
-$\E[\phi \mid X] = \tau(X)$ if either both outcome models or the propensity model are correct. With known $e$, the simpler
-transformed outcome $Y^\ast = Y\,(D - e(X))/\{e(X)(1-e(X))\}$ also has $\E[Y^\ast \mid X] = \tau(X)$.
+$\E[\phi \mid X] = \tau(X)$ if either both outcome models or the propensity model are correct. In an experiment $e$ is known,
+so the second condition holds by design; with known $e$, the simpler transformed outcome
+$Y^\ast = Y\,(D - e(X))/\{e(X)(1-e(X))\}$ also has $\E[Y^\ast \mid X] = \tau(X)$.
+\remark{Double robustness matters once the propensity is estimated, in observational data (Meeting 6).}
 
 \term{R-learner target} With $\ell(x) = \E[Y \mid X=x]$, $Y - \ell(X) = (D - e(X))\,\tau(X) + \varepsilon$, so $\tau$ minimizes
 $\E[\{(Y - \ell(X)) - (D - e(X))\,t(X)\}^2]$ over functions $t$.
@@ -281,7 +283,7 @@ $\E[\{(Y - \ell(X)) - (D - e(X))\,t(X)\}^2]$ over functions $t$.
 Segments found by searching many need a multiple-testing correction or a fresh sample.}
 
 % ================================================================================================
-\section{Causal trees and forests (Meeting 4)}
+\section{Causal trees and forests (Meeting 4, Block A)}
 
 \term{Causal splitting} A causal tree splits to separate effects, not outcomes: a split that leaves the CATE unchanged has
 zero causal gain, however much it separates outcomes.
@@ -307,6 +309,9 @@ estimate from $B$ is unbiased given the partition, and its difference-in-means s
 $\alpha_i(x) = \frac1B\sum_b \ind{X_i \in L_b(x)}/|L_b(x)|$ and solves a weighted residual regression:
 \keybox{\hatt(x) = \frac{\sum_i \alpha_i(x)\,(Y_i - \hat\ell(X_i))(D_i - \hat e(X_i))}{\sum_i \alpha_i(x)\,(D_i - \hat e(X_i))^2}}
 
+% ================================================================================================
+\section{Evaluating CATE models and policies (Meeting 4, Block B)}
+
 \term{Calibration test} Regress the held-out pseudo-outcome $\phi$ on the centered prediction,
 $\phi = \beta_1 + \beta_2(\hatt(X) - \E[\hatt(X)]) + u$. Then $\beta_1 = \ATE$ and
 $\beta_2 = \Cov(\tau(X), \hatt(X))/\Var(\hatt(X))$. A slope $\beta_2 = 1$ means calibrated, and $\beta_2 = 0$ means no
@@ -316,8 +321,6 @@ heterogeneity was found.
 average effect. Increasing group effects show the model ranks.
 \remark{Variable importance is not a test: it says which variables the trees split on, not whether effects really vary.}
 
-% ================================================================================================
-\section{Evaluating targeting policies (Meeting 5)}
 
 \term{Policy value} A policy is a rule $\pi: x \mapsto \{0,1\}$. Its gain over treating no one is
 \keybox{G(\pi) = \E[\pi(X)\,v(X)] = \Pr(\pi(X) = 1)\cdot\E[v(X) \mid \pi(X) = 1]}
@@ -348,7 +351,7 @@ order and is constant on blocks of scores.
 it is only half the group's incremental outcome.}
 
 % ================================================================================================
-\section{Allocation and policy learning (Meeting 6)}
+\section{Allocation and decision (Meeting 5)}
 
 \term{Unconstrained rule} Treat iff $v(X_i) > 0$; with a uniform cost, iff $\tau(X_i) > c/m$. If the cost is $k$ per unit sent
 and $a$ per redemption, $v(x) = (m - a)\,\tau(x) - a\,\mu_0(x) - k$: sure things cost money.
@@ -369,26 +372,8 @@ bound on $v$ is positive; it treats a unit with $v \le 0$ with probability at mo
 $c_u$ per unit short and $c_o$ per unit over, choose the $\kappa$-quantile of $F_1(\cdot \mid x)$:
 \keybox{\kappa = \frac{c_u}{c_u + c_o}}
 
-\term{Policy learning} With the doubly robust net-value score $\Gamma_i = m\,\phi_i - c(X_i)$, $\E[\Gamma_i \mid X_i] = v(X_i)$, so
-\keybox{\hat\pi = \arg\max_{\pi \in \Pi}\ \frac1n\sum_{i=1}^n \pi(X_i)\,\Gamma_i}
-This is weighted classification: predict the sign of $\Gamma_i$, each unit weighted by $|\Gamma_i|$. A depth-two policy tree is
-a readable class $\Pi$.
-
-\begin{center}
-\small
-\begin{tabular}{@{}L{2.25cm}L{3.1cm}L{2.85cm}@{}}
-\toprule
-\textbf{Route} & \textbf{Learns} & \textbf{Trained to} \\
-\midrule
-Predict-then-optimize & $\hatt(x)$, then plugs in & predict well \\
-Decision-focused & a model inside the optimizer & decide well with it \\
-Policy learning & the rule $\pi$ directly & maximize estimated value \\
-\bottomrule
-\end{tabular}
-\end{center}
-
 % ================================================================================================
-\section{Observational data (Meeting 7)}
+\section{Observational data (Meeting 6)}
 
 \term{Three assumptions} Conditional exchangeability $\{Y(0), Y(1)\} \indep D \mid X$; overlap $0 < e(x) < 1$ on the target
 population; consistency $Y = Y(D)$. Only overlap can be checked in the data.
@@ -407,22 +392,22 @@ $\E[\tau(X)\,e(X)(1-e(X))]/\E[e(X)(1-e(X))]$, which is neither the ATE nor the A
 
 \term{AIPW} The doubly robust score, averaged:
 \keybox{\begin{aligned}\hatt_{\text{AIPW}} = \frac1n\sum_i \Big[&\tilde\mu_1(X_i) - \tilde\mu_0(X_i)\\ &+ \frac{D_i(Y_i - \tilde\mu_1(X_i))}{\tilde e(X_i)} - \frac{(1-D_i)(Y_i - \tilde\mu_0(X_i))}{1-\tilde e(X_i)}\Big]\end{aligned}}
-consistent if either the outcome models or the propensity model is right. It does not protect against an unmeasured
-confounder.
+consistent if either the outcome models or the propensity model is right; its score is the pseudo-outcome behind the
+DR-learner of Meeting 3. It does not protect against an unmeasured confounder.
 
 \term{Good and bad controls}
 
 \begin{center}
 \small
-\begin{tabular}{@{}L{2.2cm}L{3.2cm}L{2.7cm}@{}}
+\begin{tabular}{@{}L{2.35cm}L{4.15cm}L{1.6cm}@{}}
 \toprule
 \textbf{Variable} & \textbf{Role} & \textbf{Adjust?} \\
 \midrule
 Confounder & causes $D$ and $Y$ & yes \\
-Mediator & caused by $D$, causes $Y$ & no (for the total effect) \\
+Mediator & caused by $D$, causes $Y$ & no (total effect) \\
 Collider & caused by $D$ (or a cause of $D$) and $Y$ & \textcolor{warnred}{no} \\
 M-bias variable & pre-treatment, but a collider of two hidden causes & \textcolor{warnred}{no} \\
-Cause of $D$ only & instrument-like & no; it only adds variance \\
+Cause of $D$ only & instrument-like; adjusting only adds variance & no \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -436,7 +421,7 @@ Only then open the outcomes.
 \remark{Sensitivity: ask how strong an unmeasured confounder would have to be to move the estimate past the break-even.}
 
 % ================================================================================================
-\section{Double machine learning (Meeting 8)}
+\section{Double machine learning (Meeting 7)}
 
 \term{Partially linear model} $Y = \theta D + g(X) + \varepsilon$ with $\E[\varepsilon \mid D, X] = 0$ and
 $\E[\Var(D \mid X)] > 0$. With $\ell(x) = \E[Y \mid X=x]$ and $r(x) = \E[D \mid X=x]$ (Frisch--Waugh--Lovell),
@@ -466,6 +451,34 @@ the residual outcome variance,
 estimate by at most\ldots''.}
 
 % ================================================================================================
+\section{Policy learning from observational data (Meeting 8)}
+
+\term{Empirical welfare maximization} In logs, the doubly robust score $\phi_i$ uses an estimated propensity and outcome
+models fitted on other folds (Meetings 6 and 7). Its net-value version $\Gamma_i = m\,\phi_i - c(X_i)$ has
+$\E[\Gamma_i \mid X_i] = v(X_i)$, so choose the policy with the largest estimated gain in a class $\Pi$:
+\keybox{\hat\pi = \arg\max_{\pi \in \Pi}\ \frac1n\sum_{i=1}^n \pi(X_i)\,\Gamma_i}
+This is weighted classification, predicting the sign of $\Gamma_i$ with each unit weighted by $|\Gamma_i|$. A depth-two
+policy tree is a readable class $\Pi$.
+
+\begin{center}
+\small
+\begin{tabular}{@{}L{2.25cm}L{3.1cm}L{2.85cm}@{}}
+\toprule
+\textbf{Route} & \textbf{Learns} & \textbf{Trained to} \\
+\midrule
+Predict-then-optimize & $\hatt(x)$, then plugs in & predict well \\
+Decision-focused & a model inside the optimizer & decide well with it \\
+Policy learning & the rule $\pi$ directly & maximize estimated value \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\term{Regret} The oracle treats $x$ iff $v(x) > 0$. For any policy,
+\keybox{V(\pi^\ast) - V(\pi) = \E\big[\,|v(X)|\;\ind{\pi(X) \ne \pi^\ast(X)}\big]}
+only misclassified units cost anything, in proportion to their net value.
+\remark{A richer class fits noise in the scores. Deploy a learned policy with a randomized holdout; a bandit makes it adaptive.}
+
+% ================================================================================================
 \section{Generative AI in causal analysis (Meeting 9)}
 
 \subsection{Learned simulators}
@@ -481,12 +494,10 @@ not about causation.
 outcomes plus a chosen effect; a hidden confounder of chosen strength can be planted the same way. Two uses:
 \begin{itemize}
   \item \textbf{estimator testbed}: bias and coverage of each method on data shaped like yours;
-  \item \textbf{pipeline testbed}: run the whole predict-then-optimize pipeline and measure regret against the oracle.
+  \item \textbf{pipeline testbed}: run the whole predict-then-optimize pipeline and measure its regret against the oracle
+  (Meeting 8).
 \end{itemize}
 
-\term{Regret} The oracle treats $x$ iff $v(x) > 0$. For any policy,
-\keybox{V(\pi^\ast) - V(\pi) = \E\big[\,|v(X)|\;\ind{\pi(X) \ne \pi^\ast(X)}\big]}
-only misclassified units cost anything, in proportion to their net value.
 \remark{Check a simulator with backtests against past experiments, stay within the data's support, watch errors compound
 over many steps, and rank pipelines across simulators of different model classes (``home advantage''). A language model
 asked for counterfactuals (silicon samples) asserts the truth from its priors; nobody planted it.}
@@ -532,7 +543,7 @@ No anticipation and no spillovers.
 \remark{Parallel trends depends on the scale: if it holds in levels and the groups start at different levels, it fails in logs.}
 
 \begin{center}
-\begin{tikzpicture}[x=1.15cm,y=0.75cm,font=\small]
+\begin{tikzpicture}[x=1.15cm,y=0.58cm,font=\small]
 \draw[->](0,0)--(3.4,0) node[right]{$t$}; \draw[->](0,0)--(0,3.1) node[above]{$Y$};
 \draw[dashed,extgrey](1.5,0)--(1.5,3); \node[extgrey,font=\scriptsize] at (1.5,-0.3){adoption};
 \draw[thick,noteblue](0.3,0.6)--(1.5,1.0)--(3,1.5); \node[noteblue,right] at (3,1.5){control};
@@ -553,7 +564,7 @@ $\ATT + \delta(\bar t_{\text{post}} - \bar t_{\text{pre}})$. The decision agains
 \term{Inference} Cluster at the level of assignment. With independent units, collapse to one change per unit,
 $\Delta_i = \bar Y_{i,\text{post}} - \bar Y_{i,\text{pre}}$, and compare groups: $\SE = \sqrt{s_1^2/n_1 + s_0^2/n_0}$.
 \remark{With staggered adoption, TWFE also compares late adopters with early adopters whose effects are still changing; use
-cohort-by-period effects instead.}
+cohort-by-period effects $\ATT(g,t)$ against never- or not-yet-treated units instead.}
 
 % ================================================================================================
 \section{Synthetic control (Meeting 11)}
@@ -575,7 +586,7 @@ in-time placebos (a fake adoption date) and leave-one-out (drop each donor in tu
 
 \begin{center}
 \small
-\begin{tabular}{@{}L{2.4cm}L{2.9cm}L{2.8cm}@{}}
+\begin{tabular}{@{}L{2.2cm}L{2.5cm}L{3.5cm}@{}}
 \toprule
 & \textbf{DiD} & \textbf{Synthetic control} \\
 \midrule
@@ -600,14 +611,12 @@ size at any strength.
 continuous at $c$, the jump $\lim_{r \downarrow c}\E[Y \mid r] - \lim_{r \uparrow c}\E[Y \mid r]$ is the effect at $c$. A fuzzy
 design divides by the jump in treatment. Check the density of $R$ and covariates at the cut-off.
 
-\term{Staggered adoption} Estimate group-time effects $\ATT(g,t)$ against never- or not-yet-treated units, then aggregate.
-
 \term{Interference} When units affect each other, a unit-randomized test estimates a direct effect at the current saturation,
 not the global effect of treating everyone; cluster or switchback designs target the global effect.
 
 \term{Sequential decisions} When a response to the first action informs the second, value a regime with the sequential
-g-formula, learn it by Q-learning, and evaluate logged policies with known action probabilities by IPW or doubly robust
-estimators. Never adjust for the intermediate response in a single regression.
+g-formula, learn it by Q-learning, and evaluate logged policies by IPW or doubly robust estimators. Never adjust for the
+intermediate response.
 
 \end{multicols*}
 \end{document}

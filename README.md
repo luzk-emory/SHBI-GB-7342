@@ -14,7 +14,8 @@ lists every decision waiting on the instructor.
 ```
 meetings/m01 ... m11/   notes.tex (technical notes), slides.tex (lecture slides), handout-*.tex,
                         coursenotes.sty (a synced copy, so each folder compiles on its own), figure files
-shared/                 coursenotes.sty (master copy), notation.tex, build.sh (builds everything; see below),
+shared/                 coursenotes.sty (master copy), notation.tex, cheatsheet.tex (six-page course summary),
+                        build.sh (builds everything; see below),
                         checks/ (number checks, run_all.sh, editorial_scan.py)
 syllabus/               syllabus.tex (follows plan/schedule.xlsx)
 cases/                  lecture cases A to C, student and instructor versions
@@ -32,6 +33,7 @@ pdf/                    combined notes, answer keys and notation sheet (generate
 | Technical notes, M1–M11 | v4.1 plus the M2 noncompliance section (8 Oct) and the editorial pass (9 Oct). Pass 1 review (arithmetic, wording) done; pass 2 (independent proof check) not yet |
 | Handouts H1–H6 | Same state as the notes. Self-contained: each restates what it uses from a meeting instead of citing its numbers |
 | Lecture slides, M1–M11 | Rebuilt to the notes and the schedule (8 Oct), editorial pass done (9 Oct); under the instructor's review. Every number checked by `slidesNN_check.py` |
+| Cheatsheet | `shared/cheatsheet.tex` (14 Oct): six landscape pages with the estimands, assumptions and Results of Meetings 1–11, stated as in the notes; update it when a Result changes |
 | Syllabus | Matches `schedule.xlsx`. Undecided items are marked `\tbd` and listed in `plan/FLAGS.md` |
 | Cases A–C | Aligned with the rebuilt decks; numbers in the rewritten parts checked by `case_check.py` |
 | Labs 1–11, assignments A1–A4, autograder | Specified in `schedule.xlsx`; not built |
@@ -85,7 +87,9 @@ One script, `shared/build.sh`, run from anywhere in the repository:
 - `bash shared/build.sh` builds everything (notation sheet, syllabus, every meeting) and writes the combined PDFs to
   `pdf/`;
 - `bash shared/build.sh m03` builds one meeting; `m03/notes`, `m03/slides` or `m03/handout-H2-neural-estimators` one
-  document; `syllabus` and `notation` the others;
+  document; `syllabus`, `notation` and `cheatsheet` the others;
+- `bash shared/build.sh clean` removes the LaTeX by-products (`.aux`, `.log`, `.synctex.gz` and so on) from every source and
+  `build/` folder; PDFs stay. The full build does this at the end, keeping only the files of documents with problems;
 - `bash shared/build.sh setup` installs TeX Live, poppler and the Python packages in a fresh Linux environment.
 
 It uses tectonic when it is installed and pdflatex otherwise (`ENGINE=pdflatex` or `ENGINE=tectonic` to choose).

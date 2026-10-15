@@ -30,8 +30,9 @@ request that resolves it.
 - [ ] syllabus/syllabus.tex:171 | 1 | Split of the 40 exam points between Exam I and Exam II | instructor
 - [ ] syllabus/syllabus.tex:172 | 1 | Assignment team size | instructor
 - [ ] syllabus/syllabus.tex:173 | 1 | Final-project point breakdown | instructor
+- [ ] syllabus/syllabus.tex:176, 226 | 1 | Lab grading after the 14 Oct restructure: proposal presentations moved to block A of Meeting 8, so all eleven labs now run in block C. Whether all eleven count (10 points across 11 labs), or one stays optional (the old optional lab was the observational lab, now Lab 6) | instructor
 - [x] syllabus/syllabus.tex:205 | 1 | Whether A3 includes an LLM-coded feature | instructor, once the problem and data are set (decided 10 Oct: no; the feature is in Lab 9. The syllabus text is updated with the data plan)
-- [ ] syllabus/syllabus.tex:302 | 1 | Due times; late-work policy | instructor
+- [ ] syllabus/syllabus.tex:301 | 1 | Due times; late-work policy | instructor
 - [ ] syllabus/syllabus.tex:316 | 1 | School policy on AI use | instructor
 - [ ] syllabus/syllabus.tex:320 | 1 | Academic integrity, accommodations, attendance, late work | instructor
 - [ ] syllabus/syllabus.tex:417–421 | 1 | Lab tooling: language model and provider, student access and cost, agent harness, locked holdout (A2) and locked simulator (A3), computing environment | instructor, before the labs are built

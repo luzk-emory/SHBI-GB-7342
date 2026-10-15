@@ -69,17 +69,17 @@ comes from. Experimental identification comes first and observational methods fo
 \toprule
 \textbf{Meetings} & \textbf{The comparison comes from} & \textbf{What may be unobserved} \\
 \midrule
-1--6 & a randomized control group & anything \\
-7--8 & units that look alike on measured variables & nothing relevant \\
-9 & a simulator learned from logs, with the effect planted & nothing relevant (the 7--8 assumption, made explicit) \\
+1--5 & a randomized control group & anything \\
+6--8 & units that look alike on measured variables & nothing relevant \\
+9 & a simulator learned from logs, with the effect planted & nothing relevant (the 6--8 assumption, made explicit) \\
 10--11 & untreated units observed over time & time-stable confounders \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \textbf{Lecture cases and worked examples.} The lectures follow running cases: Houtan Coffee, a coffee chain
-deciding who gets a coupon (Meetings 1--7), Qiantan Hotels, a hotel group setting its rates (Meetings 8
-and 9), and Sanlin Home, a home-goods retail chain rolling out an AI assistant (Meetings 10--11).
+deciding who gets a coupon (Meetings 1--6 and 8), Qiantan Hotels, a hotel group setting its rates
+(Meetings 7 and 9), and Sanlin Home, a home-goods retail chain rolling out an AI assistant (Meetings 10--11).
 The technical notes work their examples in different businesses, Yangsi Fitness, a fitness-club chain, and
 Pujiang Delivery, a food-delivery platform, so that you see each method carry over to a new setting. Every meeting opens
 with a decision and the number that settles it, and every method arrives because a simpler one
@@ -94,7 +94,7 @@ also generate \emph{variables}: labels and embeddings that are measurements with
 consequences depend on the variable's role. Meeting 9 covers both. Lectures stay focused on causal
 reasoning; hands-on work with language models and agents happens in the labs, the assignments, and
 the final project, where AI appears in five roles: as a \emph{tool} (Lab 2), a
-\emph{decision-maker} (Lab 5), an \emph{analyst} whose work you audit (Lab 7, optional), a
+\emph{decision-maker} (Lab 4), an \emph{analyst} whose work you audit (Lab 6), a
 \emph{source of data} (Lab 9), and an \emph{intervention} to evaluate (Lab 10).
 
 \section*{Learning objectives}
@@ -127,7 +127,7 @@ Each meeting has three blocks: A (minutes 0--50), B (60--110), and C (120--180),
 breaks between them. Blocks A and B are lectures. Block C is a lab; Lab $N$ goes with Meeting $N$ (see the table below).
 \begin{itemize}
     \item In Meetings 5 and 11, block A is an exam.
-    \item In Meeting 7, block C is the project proposal presentations; Lab 7 is optional and done at home.
+    \item In Meeting 8, block A is the project proposal presentations.
     \item Meeting 12 is the final presentations.
 \end{itemize}
 
@@ -168,12 +168,12 @@ projects and notebooks; confirm them.}
 \toprule
 \textbf{Component} & \textbf{Points} & \textbf{Details} \\
 \midrule
-Exams & 40 & Exam I (Meeting 5, block A) on Meetings 1--4; Exam II (Meeting 11, block A) on Meetings 5--10. No AI. \tbd{Split between the two exams: Exam II covers more lectures (11 against 8).} \\
+Exams & 40 & Exam I (Meeting 5, block A) on Meetings 1--4; Exam II (Meeting 11, block A) on Meetings 5--10. No AI. \tbd{Split between the two exams: Exam II covers more lectures (10 against 8).} \\
 Assignments & 20 & A1--A4, 5 points each (below). \tbd{Team size.} \\
 Final project & 20 & In pairs: slides and abstract, presentation and defense, report with required appendices. \tbd{Breakdown.} \\
-Project proposal & 5 & Due Sunday 8 November; presented in Meeting 7 (Tuesday 10 November). \\
+Project proposal & 5 & Due Sunday 8 November; presented in Meeting 8 (Thursday 12 November). \\
 Participation & 5 & Worksheets and case discussions in class, presentations and defense questions. \\
-Labs & 10 & Ten graded labs (Labs 1--6 and 8--11), 1 point each. Lab 7 is optional and ungraded; its methods are graded in A3. \\
+Labs & 10 & Lab notebooks, 1 point each. \tbd{Eleven labs now run in class: whether all count, or one stays optional.} \\
 \midrule
 Total & 100 & \\
 \bottomrule
@@ -195,16 +195,16 @@ costs), hand-code the ATE with a robust standard error, and
 CUPED. Then have a language model generate the full readout (sample-ratio check, ATE, CUPED, test
 against the break-even, minimum detectable effect for a follow-up) and verify it with a simulation
 test suite. One-page decision memo.
-\item[A2: Email whom, and at what budget?] Out Tuesday 3 November (Meeting 5); due Sunday 15
-November. Covers Meetings 3--6. The same experiment, with its three arms (a men's email, a women's
+\item[A2: Email whom, and at what budget?] Out Thursday 29 October (Meeting 4); due Sunday 15
+November. Covers Meetings 3--5. The same experiment, with its three arms (a men's email, a women's
 email, no email). Conditional effects from two meta-learners and a causal forest; the ranking evaluated
-with Qini curves and RATE; a budgeted allocation and a depth-2 policy tree. You submit frozen policies,
+with Qini curves and RATE; a budgeted allocation. You submit frozen policies,
 scored by IPW on a locked randomized holdout, with paired comparisons. Memo on value, cost, and what
 could overturn the recommendation.
 \item[A3: Promote and price from the logs] Out Tuesday 10 November (Meeting 7); due Friday 20
-November. Covers Meetings 7--9. Real grocery data with no experiment (dunnhumby, ``Breakfast at the
+November. Covers Meetings 6--9. Real grocery data with no experiment (dunnhumby, ``Breakfast at the
 Frat''). The effect of an in-store display: a DAG and an adjustment set; regression, IPW, and AIPW
-estimates; overlap and trimming (the methods of Lab 7). The price elasticity by DML, and a recommended
+estimates; overlap and trimming (the methods of Lab 6). The price elasticity by DML, and a recommended
 price. Generative AI for evaluation: build a simulator of the data with a planted elasticity and a dial
 for hidden confounding, and test each estimator's bias and coverage on it. Your pipeline is then run on
 a locked simulator across several planted-elasticity scenarios. Sensitivity: how strong hidden
@@ -222,11 +222,10 @@ decision memo in margin, not sales.
 
 \subsection*{Labs}
 
-Lab $N$ goes with Meeting $N$. Each notebook is expected soon after its meeting. Ten labs are graded,
-1 point each; Lab 7 is optional and ungraded, and its methods are graded in A3. Each block of labs works
-in one semi-synthetic world with a planted truth, so you can check every answer: Labs 1--7 in Houtan
-Coffee's loyalty program (built on public coffee-rewards data), Labs 8--9 in Airbnb listings and
-reviews, Labs 10--11 in real store panels with planted rollouts. Each notebook describes its source data.
+Lab $N$ goes with Meeting $N$. Each notebook is expected soon after its meeting and earns 1 point
+\tbd{which labs count}. Each block of labs works in one semi-synthetic world with a planted truth, so you can check every
+answer: Labs 1--6 and 8 in Houtan Coffee's loyalty program (built on public coffee-rewards data), Labs 7 and 9 in Airbnb
+listings and reviews, Labs 10--11 in real store panels with planted rollouts. Each notebook describes its source data.
 
 \begin{center}
 \footnotesize
@@ -235,13 +234,13 @@ reviews, Labs 10--11 in real store panels with planted rollouts. Each notebook d
 \textbf{Lab} & \textbf{M} & \textbf{Data} & \textbf{What you do} & \textbf{AI use} \\
 \midrule
 1 & 1 & Houtan Coffee world, simulated from scratch & Python and statistics review; a potential-outcomes simulator that checks naive $=$ ATT $+$ selection bias & None \\
-2 & 2 & Houtan Coffee RCT & A/B readout by hand; then an LLM-generated readout checked by three simulation tests & Required in part 2 (AI as tool) \\
+2 & 2 & Houtan Coffee RCT & A/B readout by hand; then an LLM-generated readout checked by simulation tests (coverage, size, the cost of peeking, multiple metrics) & Required in part 2 (AI as tool) \\
 3 & 3 & Houtan Coffee RCT, three versions with different effects & S- and T-learners by hand, then X- and DR-learners; a provided TARNet notebook & None until S and T are done \\
-4 & 4 & Houtan Coffee RCT & Causal forest with and without honesty; BLP, calibration test, GATES; discovery vs re-estimation across seeds & Allowed \\
-5 & 5 & Houtan Coffee RCT holdout with text profiles & Four targeting rules evaluated by IPW, one of them an LLM reading profiles; Qini curves and RATE; isotonic recalibration; freeze, then evaluate; a paired comparison of two lists & Required (AI as decision-maker) \\
-6 & 6 & Houtan Coffee RCT with costs and three coupon depths & Greedy and LP allocation; the shadow price; lower-bound allocation; a depth-2 policy tree on DR scores; optional: the price of a group constraint & Allowed \\
-7 & 7 & Logs built from the Houtan Coffee RCT by a known targeting rule & Optional, ungraded, at home. DAG and adjustment set; naive, regression, IPW, AIPW, and matching against the truth; overlap and trimming; then audit a tool-calling agent and add a guardrail & None in part 1; part 2 audits an agent (AI as analyst) \\
-8 & 8 & Airbnb listings with planted demand & Naive, fixed-effects, and DML elasticities; hand-coded cross-fitting; sensitivity bounds; the optimal price. In class & Allowed after the hand-coded step \\
+4 & 4 & Houtan Coffee RCT holdout with text profiles & Causal forest with and without honesty; variable importance vs the calibration test; four targeting rules evaluated by IPW, Qini, and RATE, one of them an LLM reading profiles; isotonic recalibration & Required in the targeting-rule part (AI as decision-maker) \\
+5 & 5 & Houtan Coffee RCT with costs and three coupon depths & Greedy and LP allocation; the shadow price; lower-bound allocation; the price of a group constraint; allocations compared with a paired comparison & Allowed \\
+6 & 6 & Logs built from the Houtan Coffee RCT by a known targeting rule & DAG and adjustment set; naive, regression, IPW, AIPW, and matching against the truth; overlap and trimming; then audit a tool-calling agent and add a guardrail & None in part 1; part 2 audits an agent (AI as analyst) \\
+7 & 7 & Airbnb listings with planted demand & Naive, fixed-effects, and DML elasticities; hand-coded cross-fitting, then a package; stability across learners and splits; sensitivity bounds; the optimal price & Allowed after the hand-coded step \\
+8 & 8 & Houtan Coffee logs and RCT holdout & Cross-fitted DR scores; a depth-2 policy tree against plug-in targeting, both evaluated on the RCT holdout & Allowed \\
 9 & 9 & Airbnb reviews with a planted latent quality and gold labels & LLM labels against gold, by arm; PPI; embeddings as DML controls; a leakage demonstration; a simulator with a confounding dial & Required (AI as source of data) \\
 10 & 10 & Rossmann store sales with a planted rollout of an AI staffing tool & Before--after, $2 \times 2$, and TWFE; event study; a pre-trend test that passes yet misses the bias & Allowed (AI as intervention) \\
 11 & 11 & California Proposition 99; one flagship store in the Rossmann panel & Donor weights by constrained least squares; placebos; leave-one-out; synthetic control vs DiD & Allowed \\
@@ -274,7 +273,7 @@ Agreement with a tool earns no credit by itself; the quality of your reasoning d
 Form pairs & Meeting 2 \\
 Question and data idea (ungraded) & Thursday 29 October \\
 Proposal (at most two slides and a one-page proposal) & Sunday 8 November \\
-Proposal presentation (2 min 30 s talk, 2 min feedback) & Meeting 7, block C (Tuesday 10 November) \\
+Proposal presentation (2 min 30 s talk, 2 min feedback) & Meeting 8, block A (Thursday 12 November) \\
 Revised identification plan (ungraded) & Saturday 21 November \\
 Presentation and defense (8 min talk, 4 min defense) & Meeting 12 (Tuesday 1 December) \\
 Draft report to your peer-review pair & Thursday 3 December \\
@@ -304,14 +303,15 @@ Thanksgiving). \tbd{Due times; late-work policy.}
 \section*{AI use policy}
 
 \begin{description}[leftmargin=1.5em, style=nextline]
-\item[Required] In part 2 of Lab 2, in Lab 5, in part 2 of Lab 7 (auditing an agent), and in Lab 9;
+\item[Required] In part 2 of Lab 2, in the targeting-rule part of Lab 4, in part 2 of Lab 6 (auditing an agent), and in
+Lab 9;
 in the delegation step of A1; and in A3, where a simulator is the testbed.
-\item[Allowed, with disclosure] In A2, A3, and A4; in Labs 4, 6, 10, and 11; in Lab 8 after the
-hand-coded step; in Lab 3 once the S- and T-learners are done by hand; and in the final project, in
+\item[Allowed, with disclosure] In A2, A3, and A4; in the rest of Lab 4; in Labs 5, 8, 10, and 11; in Lab 7 after
+the hand-coded step; in Lab 3 once the S- and T-learners are done by hand; and in the final project, in
 any way you choose. Disclose which tools you used and for what. You are responsible for every number
 and claim you submit.
 \item[Prohibited] In the exams; in
-Lab 1, part 1 of Lab 2, and part 1 of Lab 7; and in the hand-coded estimator of A1.
+Lab 1, part 1 of Lab 2, and part 1 of Lab 6; and in the hand-coded estimator of A1.
 \end{description}
 \tbd{School policy on AI use, and how it applies here.}
 
@@ -363,13 +363,13 @@ Exams and presentations are in bold. ``Out / due'' lists what is released after 
 2\newline Thu 22 Oct & \textbf{Experiments}\newline Coffee chain & Estimation: analyze as drawn; sample-ratio checks; Fisher and Neyman; OLS on a dummy with robust SEs; testing against the break-even; transport. & Design: power and MDE for a decision; CUPED; randomization unit, interference, and clustered SEs; peeking and multiple metrics. To close: noncompliance, the ITT, and the LATE. & Lab 2\newline Handout H1 & Out: A1.\newline Due: project pairs. \\
 \wk{Week 2 \quad 27--29 October}
 3\newline Tue 27 Oct & \textbf{Conditional effects}\newline Coffee chain & Why the average misleads targeting; $\tau(x)$; effect modifiers vs prognostic variables; subgroups and interactions; multiple testing; GATE. & Meta-learners: S, T, X, DR, R; TARNet as a shared representation; choosing a model without ground truth. & Lab 3\newline Handout H2 & Due: question and data idea (Thu 29 Oct). \\
-4\newline Thu 29 Oct & \textbf{Causal trees and forests}\newline Coffee chain & An estimand chosen by the data; causal trees; the winner's curse; honesty and sample splitting; committing a discovery. & Forests as adaptive neighbors; local centering; CATE intervals and their limits; variable importance; BLP calibration test, GATES. & Lab 4 & Due: A1 (Fri 30 Oct). \\
+4\newline Thu 29 Oct & \textbf{Causal trees, forests, and evaluation}\newline Coffee chain & Causal trees and forests: an estimand chosen by the data; the winner's curse; honesty and sample splitting; committing a discovery; forests as adaptive neighbors; CATE intervals and their limits. & Evaluation: the calibration test and GATES; policy value and the policy-value identity; IPW value with the known propensity; gain, profit, and Qini curves; RATE; ranking vs calibration; freezing a policy; comparing two policies. & Lab 4 & Out: A2.\newline Due: A1 (Fri 30 Oct). \\
 \wk{Week 3 \quad 3--5 November}
-5\newline Tue 3 Nov & \textbf{Evaluating targeting policies}\newline Coffee chain & \textbf{Exam I} (Meetings 1--4) & Policy value and the policy-value identity; IPW value on held-out data; gain, profit, and Qini curves; RATE; ranking vs calibration; isotonic recalibration; selection vs evaluation data; freezing a policy; comparing two policies. & Lab 5 & Out: A2.\newline Due: proposal (Sun 8 Nov). \\
-6\newline Thu 5 Nov & \textbf{Allocation and policy learning}\newline Coffee chain & Net value and thresholds; the sure-thing cost; caps; budgets and the shadow price; coupon depths; the price of fairness; spending risk; lower-bound allocation; capacity and the critical fractile. & Predict-then-optimize, decision-focused learning, and policy learning; empirical welfare maximization with DR scores; weighted classification; policy trees; regret; holdouts; bandits. & Lab 6\newline Handout H3 &  \\
+5\newline Tue 3 Nov & \textbf{Allocation and decision}\newline Coffee chain & \textbf{Exam I} (Meetings 1--4) & Net value and thresholds; the sure-thing cost; caps; budgets and the shadow price; the price of fairness; spending risk and lower-bound allocation; capacity and the critical fractile; what the sum assumes. & Lab 5 & Due: proposal (Sun 8 Nov). \\
+6\newline Thu 5 Nov & \textbf{Observational data}\newline Coffee chain & Identification and adjustment: logs produced by a targeting rule; exchangeability, overlap, consistency; standardization and IPW with an estimated propensity; the balancing property; what regression adjustment estimates; good and bad controls. & Overlap, design, and double robustness: overlap diagnostics, trimming and the estimand; the outcome-free design stage; doubly robust AIPW; the LaLonde benchmark; sensitivity. & Lab 6\newline Handout H4 &  \\
 \wk{Week 4 \quad 10--12 November}
-7\newline Tue 10 Nov & \textbf{Observational data}\newline Coffee chain & Identification and adjustment: logs produced by a targeting rule; exchangeability, overlap, consistency; standardization and IPW; the balancing property; what regression adjustment estimates; good and bad controls. & Overlap, design, and double robustness: overlap diagnostics, trimming and the estimand; the outcome-free design stage; doubly robust AIPW; the LaLonde benchmark; sensitivity. & \textbf{Proposal presentations}; Lab 7 (optional, at home)\newline Handout H4 & Out: A3. \\
-8\newline Thu 12 Nov & \textbf{Double machine learning}\newline Hotel group & The partially linear model; residualization and what $\theta$ averages; why plug-in ML fails; cross-fitting; orthogonality; price elasticity. & Inference and repeated splits; nuisance learners; overlap; the interactive model and AIPW scores; DML for CATE; sensitivity bounds and benchmarking. & Lab 8\newline Handout H5 & Due: A2 (Sun 15 Nov). \\
+7\newline Tue 10 Nov & \textbf{Double machine learning}\newline Hotel group & The partially linear model; residualization and what $\theta$ averages; why plug-in ML fails; cross-fitting; orthogonality; price elasticity. & Overlap with a continuous treatment; the interactive model and AIPW scores; DML for CATE; inference; sensitivity bounds and benchmarking. & Lab 7\newline Handout H5 & Out: A3. \\
+8\newline Thu 12 Nov & \textbf{Policy learning}\newline Coffee chain & \textbf{Proposal presentations} & Policy learning from observational data: predict-then-optimize, decision-focused learning, and policy learning; cross-fitted DR scores; empirical welfare maximization; weighted classification; policy trees; regret; holdouts; bandits. & Lab 8\newline Handout H3 & Due: A2 (Sun 15 Nov). \\
 \wk{Week 5 \quad 17--19 November}
 9\newline Tue 17 Nov & \textbf{Generative AI in causal analysis}\newline Hotel group & Learned simulators: from standardization to a simulator; planting effects and confounding; estimator vs pipeline testbeds and regret; backtests, support, compounding error, home advantage; planted vs asserted truth. & LLM-generated variables: labels by role and bias direction; gold subsamples with PPI and DSL; embeddings as DML controls; leakage and overlap collapse. & Lab 9\newline Handout H2 &  \\
 10\newline Thu 19 Nov & \textbf{Panel data and DiD}\newline Retail chain & Adoption-date outcomes; before--after and its failures; unit and time fixed effects; the within transformation. & The $2 \times 2$ DiD and the ATT; parallel trends (levels vs logs); TWFE with one adoption date; event studies and pre-trends; trend sensitivity; clustered SEs; a warning on staggered timing. & Lab 10\newline Handout H6 & Out: A4.\newline Due: A3 (Fri 20 Nov); revised identification plan (Sat 21 Nov). \\
@@ -395,7 +395,7 @@ Lab notebooks are expected soon after their meeting and are not listed.
 1 (20--22 Oct) & & & Project pairs (Thu 22 Oct) \\
 2 (27--29 Oct) & & A1 (Fri 30 Oct) & Question and data idea (Thu 29 Oct) \\
 3 (3--5 Nov) & \textbf{Exam I} (Tue 3 Nov) & Proposal (Sun 8 Nov) & \\
-4 (10--12 Nov) & Proposal presentations (Tue 10 Nov) & A2 (Sun 15 Nov) & Lab 7 (optional) \\
+4 (10--12 Nov) & Proposal presentations (Thu 12 Nov) & A2 (Sun 15 Nov) & \\
 5 (17--19 Nov) & & A3 (Fri 20 Nov) & Revised identification plan (Sat 21 Nov) \\
 6 (24 Nov) & \textbf{Exam II} (Tue 24 Nov); no meeting Thu 26 Nov (Thanksgiving) & A4 (Sun 29 Nov) & \\
 7 (1 Dec) & Final presentations (Tue 1 Dec) & & Draft to peer pair (Thu 3 Dec); peer review returned (Sun 6 Dec) \\
@@ -416,7 +416,7 @@ materials.
 \toprule
 Language model and provider & \tbd{to be announced} \\
 Access, accounts, and cost to students & \tbd{to be announced} \\
-Agent harness (Lab 7) and logging & \tbd{to be announced} \\
+Agent harness (Lab 6) and logging & \tbd{to be announced} \\
 Locked holdout (A2) and locked simulator (A3) & \tbd{to be announced} \\
 Computing environment & \tbd{to be announced} \\
 \bottomrule
